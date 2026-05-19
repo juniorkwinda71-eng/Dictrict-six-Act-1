@@ -1,90 +1,2184 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>District Six – The Play | Academic Study Guide</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,900;1,400;1,600&family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --cream: #F5F0E8;
+    --parchment: #EDE5D0;
+    --deep-navy: #1A2744;
+    --gold: #B8860B;
+    --gold-light: #D4A929;
+    --burgundy: #6B1A2A;
+    --charcoal: #2C2C2C;
+    --mid-gray: #5A5A5A;
+    --light-gray: #9A9A9A;
+    --rule-line: #C9B99A;
+    --stage-dir: #4A3728;
+    --accent-blue: #2E4B6F;
+    --shadow: rgba(26,39,68,0.15);
+  }
 
-    <meta charset="UTF-8">
+  * { box-sizing: border-box; margin: 0; padding: 0; }
 
-    <meta name="viewport"
-    content="width=device-width, initial-scale=1.0">
+  body {
+    font-family: 'EB Garamond', Georgia, serif;
+    background: #1A1A1A;
+    color: var(--charcoal);
+    min-height: 100vh;
+  }
 
-    <title>Happy Birthday Mom</title>
+  /* ======== COVER PAGE ======== */
+  #cover-page {
+    min-height: 100vh;
+    background: var(--deep-navy);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+    padding: 40px 20px;
+  }
 
-    <link rel="stylesheet" href="style.css">
+  #cover-page::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+      repeating-linear-gradient(0deg, transparent, transparent 59px, rgba(184,134,11,0.12) 60px),
+      repeating-linear-gradient(90deg, transparent, transparent 59px, rgba(184,134,11,0.06) 60px);
+    pointer-events: none;
+  }
 
+  #cover-page::after {
+    content: '';
+    position: absolute;
+    top: 30px; left: 30px; right: 30px; bottom: 30px;
+    border: 2px solid rgba(184,134,11,0.4);
+    pointer-events: none;
+  }
+
+  .cover-inner-border {
+    position: absolute;
+    top: 38px; left: 38px; right: 38px; bottom: 38px;
+    border: 1px solid rgba(184,134,11,0.2);
+    pointer-events: none;
+  }
+
+  .cover-corner {
+    position: absolute;
+    width: 50px; height: 50px;
+    border-color: var(--gold);
+    border-style: solid;
+  }
+  .cover-corner.tl { top: 26px; left: 26px; border-width: 3px 0 0 3px; }
+  .cover-corner.tr { top: 26px; right: 26px; border-width: 3px 3px 0 0; }
+  .cover-corner.bl { bottom: 26px; left: 26px; border-width: 0 0 3px 3px; }
+  .cover-corner.br { bottom: 26px; right: 26px; border-width: 0 3px 3px 0; }
+
+  .cover-content {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    max-width: 700px;
+    width: 100%;
+  }
+
+  .cover-series-label {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 5px;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 30px;
+    opacity: 0.9;
+  }
+
+  .cover-ornament {
+    color: var(--gold);
+    font-size: 28px;
+    margin-bottom: 20px;
+    letter-spacing: 12px;
+    opacity: 0.7;
+  }
+
+  .cover-subtitle-top {
+    font-family: 'EB Garamond', serif;
+    font-style: italic;
+    font-size: 18px;
+    color: rgba(255,255,255,0.55);
+    margin-bottom: 18px;
+    letter-spacing: 1px;
+  }
+
+  .cover-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(48px, 9vw, 82px);
+    font-weight: 900;
+    color: #FFFFFF;
+    line-height: 1.0;
+    letter-spacing: -1px;
+    margin-bottom: 6px;
+    text-shadow: 0 4px 30px rgba(0,0,0,0.5);
+  }
+
+  .cover-title-the {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(20px, 4vw, 36px);
+    font-weight: 400;
+    font-style: italic;
+    color: var(--gold-light);
+    letter-spacing: 4px;
+    margin-bottom: 24px;
+  }
+
+  .cover-rule {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin: 28px auto;
+    max-width: 500px;
+  }
+
+  .cover-rule-line {
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--gold), transparent);
+  }
+
+  .cover-rule-diamond {
+    width: 8px; height: 8px;
+    background: var(--gold);
+    transform: rotate(45deg);
+    flex-shrink: 0;
+  }
+
+  .cover-author-block {
+    margin: 0 auto 30px;
+  }
+
+  .cover-by {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 10px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.4);
+    margin-bottom: 8px;
+  }
+
+  .cover-author {
+    font-family: 'Playfair Display', serif;
+    font-size: 22px;
+    font-weight: 600;
+    color: rgba(255,255,255,0.85);
+    margin-bottom: 4px;
+  }
+
+  .cover-adapted {
+    font-family: 'EB Garamond', serif;
+    font-style: italic;
+    font-size: 14px;
+    color: rgba(255,255,255,0.4);
+  }
+
+  .cover-badge-row {
+    display: flex;
+    gap: 16px;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin: 24px 0;
+  }
+
+  .cover-badge {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 9px;
+    font-weight: 600;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    color: var(--gold);
+    border: 1px solid rgba(184,134,11,0.4);
+    padding: 7px 16px;
+    border-radius: 2px;
+    background: rgba(184,134,11,0.06);
+  }
+
+  .cover-description {
+    font-family: 'EB Garamond', serif;
+    font-size: 15px;
+    color: rgba(255,255,255,0.45);
+    line-height: 1.6;
+    max-width: 440px;
+    margin: 0 auto 36px;
+    font-style: italic;
+  }
+
+  .cover-start-btn {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: var(--deep-navy);
+    background: var(--gold);
+    border: none;
+    padding: 16px 44px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 20px rgba(184,134,11,0.35);
+  }
+
+  .cover-start-btn:hover {
+    background: var(--gold-light);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 30px rgba(184,134,11,0.5);
+  }
+
+  /* ======== BOOK APP ======== */
+  #book-app {
+    display: none;
+    min-height: 100vh;
+    background: #1A1A1A;
+  }
+
+  /* Sidebar TOC */
+  #sidebar {
+    position: fixed;
+    left: 0; top: 0; bottom: 0;
+    width: 270px;
+    background: var(--deep-navy);
+    z-index: 100;
+    overflow-y: auto;
+    transform: translateX(-100%);
+    transition: transform 0.35s cubic-bezier(0.4,0,0.2,1);
+    box-shadow: 4px 0 30px rgba(0,0,0,0.5);
+    display: flex;
+    flex-direction: column;
+  }
+
+  #sidebar.open { transform: translateX(0); }
+
+  .sidebar-header {
+    padding: 28px 24px 20px;
+    border-bottom: 1px solid rgba(184,134,11,0.2);
+    flex-shrink: 0;
+  }
+
+  .sidebar-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 15px;
+    font-weight: 700;
+    color: white;
+    margin-bottom: 4px;
+  }
+
+  .sidebar-sub {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 9px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--gold);
+    opacity: 0.8;
+  }
+
+  .sidebar-close {
+    position: absolute;
+    top: 18px; right: 18px;
+    background: none;
+    border: none;
+    color: rgba(255,255,255,0.5);
+    font-size: 22px;
+    cursor: pointer;
+    line-height: 1;
+    padding: 4px;
+  }
+
+  .sidebar-close:hover { color: white; }
+
+  .toc-list {
+    padding: 16px 0;
+    flex: 1;
+  }
+
+  .toc-item {
+    display: block;
+    padding: 10px 24px;
+    font-family: 'EB Garamond', serif;
+    font-size: 14px;
+    color: rgba(255,255,255,0.7);
+    cursor: pointer;
+    border-left: 3px solid transparent;
+    transition: all 0.2s;
+    text-decoration: none;
+  }
+
+  .toc-item:hover {
+    color: white;
+    border-left-color: var(--gold);
+    background: rgba(184,134,11,0.08);
+  }
+
+  .toc-item.active {
+    color: var(--gold-light);
+    border-left-color: var(--gold);
+    background: rgba(184,134,11,0.1);
+    font-weight: 600;
+  }
+
+  .toc-page-num {
+    float: right;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 10px;
+    color: rgba(255,255,255,0.3);
+    margin-top: 2px;
+  }
+
+  .toc-section-label {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 8px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--gold);
+    padding: 16px 24px 6px;
+    opacity: 0.7;
+  }
+
+  /* Top Bar */
+  #topbar {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    height: 56px;
+    background: var(--deep-navy);
+    z-index: 90;
+    display: flex;
+    align-items: center;
+    padding: 0 20px;
+    gap: 16px;
+    box-shadow: 0 2px 20px rgba(0,0,0,0.4);
+    border-bottom: 1px solid rgba(184,134,11,0.2);
+  }
+
+  .topbar-menu-btn {
+    background: none;
+    border: none;
+    color: rgba(255,255,255,0.8);
+    cursor: pointer;
+    padding: 6px;
+    font-size: 20px;
+    line-height: 1;
+    flex-shrink: 0;
+  }
+
+  .topbar-menu-btn:hover { color: var(--gold); }
+
+  .topbar-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 15px;
+    font-weight: 600;
+    color: white;
+    flex: 1;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .topbar-scene-info {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 10px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--gold);
+    opacity: 0.8;
+    white-space: nowrap;
+  }
+
+  /* Main Content */
+  #main-content {
+    margin-top: 56px;
+    min-height: calc(100vh - 56px);
+    display: flex;
+    justify-content: center;
+    padding: 40px 20px 80px;
+  }
+
+  /* Book Page */
+  .book-page {
+    background: var(--cream);
+    max-width: 720px;
+    width: 100%;
+    min-height: 900px;
+    box-shadow:
+      0 2px 8px rgba(0,0,0,0.12),
+      0 8px 40px rgba(0,0,0,0.3),
+      inset 0 0 0 1px rgba(0,0,0,0.04);
+    position: relative;
+    display: none;
+    flex-direction: column;
+  }
+
+  .book-page.active { display: flex; }
+
+  /* Book Header */
+  .page-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 18px 44px 14px;
+    border-bottom: 1px solid var(--rule-line);
+    background: var(--parchment);
+    flex-shrink: 0;
+  }
+
+  .page-header-left {
+    font-family: 'EB Garamond', serif;
+    font-style: italic;
+    font-size: 12px;
+    color: var(--light-gray);
+    letter-spacing: 0.3px;
+  }
+
+  .page-number-display {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 11px;
+    font-weight: 600;
+    color: var(--mid-gray);
+    letter-spacing: 1px;
+  }
+
+  .page-header-right {
+    font-family: 'EB Garamond', serif;
+    font-style: italic;
+    font-size: 12px;
+    color: var(--light-gray);
+    letter-spacing: 0.3px;
+    text-align: right;
+  }
+
+  /* Page Body */
+  .page-body {
+    flex: 1;
+    padding: 32px 44px 28px;
+    overflow: visible;
+  }
+
+  /* Scene Heading */
+  .scene-heading {
+    font-family: 'Playfair Display', serif;
+    font-size: 24px;
+    font-weight: 700;
+    color: var(--charcoal);
+    margin-bottom: 6px;
+    margin-top: 8px;
+  }
+
+  /* Stage direction */
+  .stage-direction {
+    font-family: 'EB Garamond', serif;
+    font-style: italic;
+    font-size: 16px;
+    color: var(--stage-dir);
+    line-height: 1.55;
+    margin-bottom: 18px;
+    margin-top: 4px;
+  }
+
+  /* Dialogue */
+  .dialogue-block {
+    display: flex;
+    gap: 0;
+    margin-bottom: 12px;
+    line-height: 1.6;
+  }
+
+  .speaker {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 13.5px;
+    font-weight: 700;
+    color: var(--charcoal);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    min-width: 110px;
+    padding-top: 1px;
+    flex-shrink: 0;
+  }
+
+  .dialogue-text {
+    font-family: 'EB Garamond', serif;
+    font-size: 17px;
+    color: var(--charcoal);
+    line-height: 1.58;
+    flex: 1;
+  }
+
+  /* Footnotes */
+  .footnotes-section {
+    border-top: 1px solid var(--rule-line);
+    margin-top: 28px;
+    padding-top: 14px;
+  }
+
+  .footnote-item {
+    font-family: 'EB Garamond', serif;
+    font-size: 13px;
+    color: var(--mid-gray);
+    line-height: 1.45;
+    margin-bottom: 4px;
+  }
+
+  .footnote-item strong {
+    font-style: italic;
+    font-weight: 600;
+    color: var(--charcoal);
+  }
+
+  /* Page Footer */
+  .page-footer {
+    padding: 14px 44px 20px;
+    border-top: 1px solid var(--rule-line);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-shrink: 0;
+    gap: 12px;
+    flex-wrap: wrap;
+    background: var(--parchment);
+  }
+
+  /* Translation Toggle Button */
+  .translate-btn {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    background: var(--deep-navy);
+    color: var(--gold);
+    border: 1px solid rgba(184,134,11,0.4);
+    padding: 9px 18px;
+    cursor: pointer;
+    transition: all 0.25s;
+    border-radius: 2px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .translate-btn:hover {
+    background: var(--gold);
+    color: var(--deep-navy);
+    border-color: var(--gold);
+  }
+
+  .translate-btn .btn-icon {
+    font-size: 14px;
+    line-height: 1;
+  }
+
+  /* Nav buttons */
+  .page-nav {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+  }
+
+  .nav-btn {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    background: none;
+    border: 1px solid var(--rule-line);
+    color: var(--mid-gray);
+    padding: 8px 16px;
+    cursor: pointer;
+    transition: all 0.2s;
+    border-radius: 2px;
+  }
+
+  .nav-btn:hover {
+    border-color: var(--deep-navy);
+    color: var(--deep-navy);
+  }
+
+  .nav-btn:disabled {
+    opacity: 0.3;
+    cursor: not-allowed;
+  }
+
+  /* Translation Overlay */
+  .translation-overlay {
+    display: none;
+    position: absolute;
+    inset: 0;
+    background: #FDFBF7;
+    z-index: 10;
+    flex-direction: column;
+    overflow: hidden;
+  }
+
+  .translation-overlay.visible { display: flex; }
+
+  .translation-header {
+    background: var(--deep-navy);
+    padding: 16px 44px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-shrink: 0;
+  }
+
+  .translation-header-left {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--gold);
+  }
+
+  .translation-header-subtitle {
+    font-family: 'EB Garamond', serif;
+    font-style: italic;
+    font-size: 13px;
+    color: rgba(255,255,255,0.5);
+    margin-top: 2px;
+  }
+
+  .back-btn {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    background: rgba(184,134,11,0.15);
+    color: var(--gold);
+    border: 1px solid rgba(184,134,11,0.3);
+    padding: 9px 18px;
+    cursor: pointer;
+    transition: all 0.2s;
+    border-radius: 2px;
+  }
+
+  .back-btn:hover {
+    background: var(--gold);
+    color: var(--deep-navy);
+  }
+
+  .translation-body {
+    flex: 1;
+    overflow-y: auto;
+    padding: 28px 44px 40px;
+  }
+
+  .translation-scene-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--deep-navy);
+    margin-bottom: 6px;
+  }
+
+  .translation-note {
+    font-family: 'EB Garamond', serif;
+    font-style: italic;
+    font-size: 14px;
+    color: var(--light-gray);
+    margin-bottom: 24px;
+    padding-bottom: 16px;
+    border-bottom: 1px solid var(--rule-line);
+  }
+
+  .trans-block {
+    margin-bottom: 14px;
+    line-height: 1.62;
+  }
+
+  .trans-speaker {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: var(--charcoal);
+  }
+
+  .trans-original {
+    font-family: 'EB Garamond', serif;
+    font-style: italic;
+    font-size: 15px;
+    color: var(--mid-gray);
+    margin: 2px 0 3px 0;
+  }
+
+  .trans-english {
+    font-family: 'EB Garamond', serif;
+    font-size: 16.5px;
+    color: var(--charcoal);
+    border-left: 3px solid var(--gold);
+    padding-left: 12px;
+    margin-top: 4px;
+  }
+
+  .trans-stage {
+    font-family: 'EB Garamond', serif;
+    font-style: italic;
+    font-size: 14px;
+    color: var(--stage-dir);
+    margin-bottom: 14px;
+  }
+
+  /* Sidebar overlay bg */
+  #sidebar-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.5);
+    z-index: 99;
+  }
+
+  #sidebar-overlay.visible { display: block; }
+
+  /* Glossary pill */
+  .glossary-inline {
+    display: inline;
+    font-size: 12px;
+    color: var(--accent-blue);
+    cursor: help;
+    border-bottom: 1px dotted var(--accent-blue);
+    font-style: normal;
+  }
+
+  /* Cover back button in topbar */
+  .topbar-home-btn {
+    background: none;
+    border: 1px solid rgba(184,134,11,0.3);
+    color: var(--gold);
+    font-family: 'Montserrat', sans-serif;
+    font-size: 9px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    padding: 6px 12px;
+    cursor: pointer;
+    border-radius: 2px;
+    transition: all 0.2s;
+    flex-shrink: 0;
+  }
+
+  .topbar-home-btn:hover {
+    background: rgba(184,134,11,0.15);
+  }
+
+  @media (max-width: 600px) {
+    .page-body { padding: 22px 22px 18px; }
+    .page-header { padding: 14px 22px 10px; }
+    .page-footer { padding: 12px 22px 16px; }
+    .speaker { min-width: 80px; font-size: 11.5px; }
+    .dialogue-text { font-size: 15px; }
+    .scene-heading { font-size: 20px; }
+    .translation-header { padding: 14px 22px; }
+    .translation-body { padding: 20px 22px 32px; }
+  }
+</style>
 </head>
-
 <body>
 
+<!-- ===================== COVER PAGE ===================== -->
+<div id="cover-page">
+  <div class="cover-corner tl"></div>
+  <div class="cover-corner tr"></div>
+  <div class="cover-corner bl"></div>
+  <div class="cover-corner br"></div>
+  <div class="cover-inner-border"></div>
 
+  <div class="cover-content">
+    <div class="cover-series-label">Academic Study Guide &nbsp;·&nbsp; Grade 12 Literature</div>
 
-<!-- MUSIC BUTTON -->
+    <div class="cover-ornament">❧ ✦ ❧</div>
 
-<button id="music-btn">
+    <div class="cover-subtitle-top">David Kramer &amp; Taliep Petersen</div>
 
-    🎵 Tap To Start Experience
+    <div class="cover-title">District Six</div>
+    <div class="cover-title-the">— The Play —</div>
 
-</button>
-
-
-
-<!-- COVER PAGE -->
-
-<section id="cover-page">
-
-    <div class="overlay"></div>
-
-    <div class="cover-content">
-
-        <h1 id="title"></h1>
-
-        <p id="subtitle"></p>
-
+    <div class="cover-rule">
+      <div class="cover-rule-line"></div>
+      <div class="cover-rule-diamond"></div>
+      <div class="cover-rule-line"></div>
     </div>
 
-</section>
-
-
-
-<!-- PAGE 2 -->
-
-<section id="message-page">
-
-    <div id="background-slider"></div>
-
-    <div class="dark-layer"></div>
-
-    <div class="message-box">
-
-        <p id="message"></p>
-
+    <div class="cover-author-block">
+      <div class="cover-by">Adapted by</div>
+      <div class="cover-author">David Kramer</div>
+      <div class="cover-adapted">from "District Six – the musical"</div>
     </div>
 
-
-
-    <!-- SCROLL INDICATOR -->
-
-    <div id="scroll-indicator">
-
-        ↓ Scroll Down ↓
-
+    <div class="cover-badge-row">
+      <div class="cover-badge">Act One · Complete</div>
+      <div class="cover-badge">10 Scenes · Pages 19–44</div>
+      <div class="cover-badge">Bilingual Edition</div>
     </div>
 
-</section>
+    <div class="cover-description">
+      A formal study guide of the complete Act One text, with bilingual Afrikaans–English support. Click any page's translation button to view full English renderings of the Afrikaans dialogue.
+    </div>
 
+    <button class="cover-start-btn" onclick="openBook()">Open Study Guide</button>
+  </div>
+</div>
 
+<!-- ===================== BOOK APP ===================== -->
+<div id="book-app">
 
-<!-- MUSIC -->
+  <!-- Sidebar Overlay -->
+  <div id="sidebar-overlay" onclick="closeSidebar()"></div>
 
-<audio id="bg-music" loop>
+  <!-- Sidebar -->
+  <div id="sidebar">
+    <div class="sidebar-header">
+      <button class="sidebar-close" onclick="closeSidebar()">✕</button>
+      <div class="sidebar-title">District Six – The Play</div>
+      <div class="sidebar-sub">Table of Contents</div>
+    </div>
+    <div class="toc-list">
+      <div class="toc-section-label">Act One</div>
+      <a class="toc-item" onclick="goToPage(0)">Act 1 Scene 1 <span class="toc-page-num">p. 19</span></a>
+      <a class="toc-item" onclick="goToPage(1)">Act 1 Scene 1 (cont.) <span class="toc-page-num">p. 20–21</span></a>
+      <a class="toc-item" onclick="goToPage(2)">Act 1 Scene 1 (cont.) <span class="toc-page-num">p. 22–23</span></a>
+      <a class="toc-item" onclick="goToPage(3)">Act 1 Scene 2 <span class="toc-page-num">p. 24</span></a>
+      <a class="toc-item" onclick="goToPage(4)">Act 1 Scene 2 (cont.) <span class="toc-page-num">p. 25</span></a>
+      <a class="toc-item" onclick="goToPage(5)">Act 1 Scene 3 <span class="toc-page-num">p. 25–27</span></a>
+      <a class="toc-item" onclick="goToPage(6)">Act 1 Scene 4 <span class="toc-page-num">p. 27–28</span></a>
+      <a class="toc-item" onclick="goToPage(7)">Act 1 Scene 4 (cont.) <span class="toc-page-num">p. 28–29</span></a>
+      <a class="toc-item" onclick="goToPage(8)">Act 1 Scene 5 <span class="toc-page-num">p. 29–30</span></a>
+      <a class="toc-item" onclick="goToPage(9)">Act 1 Scene 5 (cont.) <span class="toc-page-num">p. 30–31</span></a>
+      <a class="toc-item" onclick="goToPage(10)">Act 1 Scene 6 <span class="toc-page-num">p. 31–32</span></a>
+      <a class="toc-item" onclick="goToPage(11)">Act 1 Scene 6 (cont.) <span class="toc-page-num">p. 32–33</span></a>
+      <a class="toc-item" onclick="goToPage(12)">Act 1 Scene 7 <span class="toc-page-num">p. 34–35</span></a>
+      <a class="toc-item" onclick="goToPage(13)">Act 1 Scene 7 (cont.) <span class="toc-page-num">p. 35–36</span></a>
+      <a class="toc-item" onclick="goToPage(14)">Act 1 Scene 8 <span class="toc-page-num">p. 37–38</span></a>
+      <a class="toc-item" onclick="goToPage(15)">Act 1 Scene 8 (cont.) <span class="toc-page-num">p. 38–39</span></a>
+      <a class="toc-item" onclick="goToPage(16)">Act 1 Scene 9 <span class="toc-page-num">p. 39–41</span></a>
+      <a class="toc-item" onclick="goToPage(17)">Act 1 Scene 9 (cont.) <span class="toc-page-num">p. 41–42</span></a>
+      <a class="toc-item" onclick="goToPage(18)">Act 1 Scene 10 <span class="toc-page-num">p. 42–43</span></a>
+      <a class="toc-item" onclick="goToPage(19)">Act 1 Scene 10 (cont.) <span class="toc-page-num">p. 43–44</span></a>
+    </div>
+  </div>
 
-    <source src="music/song.mp3" type="audio/mp3">
+  <!-- Top Bar -->
+  <div id="topbar">
+    <button class="topbar-menu-btn" onclick="openSidebar()">☰</button>
+    <div class="topbar-title">District Six – The Play</div>
+    <div class="topbar-scene-info" id="topbar-scene">Act 1 · Scene 1</div>
+    <button class="topbar-home-btn" onclick="goToCover()">◂ Cover</button>
+  </div>
 
-</audio>
+  <!-- Main Content -->
+  <div id="main-content">
 
+    <!-- ===== PAGE 0: Scene 1, p.19 ===== -->
+    <div class="book-page active" id="page-0">
+      <div class="page-header">
+        <div class="page-header-left">District Six – the play</div>
+        <div class="page-number-display">19</div>
+        <div class="page-header-right"></div>
+      </div>
+      <div class="page-body">
+        <div class="scene-heading">District Six – the play</div>
+        <div class="stage-direction" style="font-style:normal; font-size:14px; color:#5A5A5A; margin-bottom:4px;">David Kramer<br>adapted from "District Six – the musical" by David Kramer and Taliep Petersen</div>
+        <hr style="border:none; border-top:1px solid var(--rule-line); margin:16px 0;">
+        <div class="scene-heading">Act 1 Scene 1</div>
+        <div class="stage-direction">Curtain up on a busy District Six<sup>1</sup> street scene. People are going about their business. HENRY is next to his barrow that is filled with fruit and vegetables.</div>
+        <div class="dialogue-block"><div class="speaker">Henry:</div><div class="dialogue-text">En is aaartappel, ywe<sup>2</sup> en tamaa-tie – hey! Tomatoes to fry, potatoes to braai. Tomorrow you cry. You know why? 'Cos you didn't buy.</div></div>
+        <div class="dialogue-block"><div class="speaker">Hawker:</div><div class="dialogue-text">Avocado pere maakie hare mere!<br>Lekker patat maakie hare glad!<br>Lekker raap<sup>3</sup> virrie aap vannie Kaap!</div></div>
+        <div class="dialogue-block"><div class="speaker">Galiema:</div><div class="dialogue-text">Henry, is your bananas ripe?</div></div>
+        <div class="dialogue-block"><div class="speaker">Henry:</div><div class="dialogue-text">Press my number for fresh cucumber.</div></div>
+        <div class="dialogue-block"><div class="speaker">Galiema:</div><div class="dialogue-text">How much?</div></div>
+        <div class="dialogue-block"><div class="speaker">Henry:</div><div class="dialogue-text">Don't let your eyes fool you. Don't let your pocket rule you.</div></div>
+        <div class="dialogue-block"><div class="speaker">Galiema:</div><div class="dialogue-text">Gee net die blerrie prys!</div></div>
+        <div class="dialogue-block"><div class="speaker">Henry:</div><div class="dialogue-text">Daai's ten for a bob.</div></div>
+        <div class="dialogue-block"><div class="speaker">Galiema:</div><div class="dialogue-text">Wat? Pick 'n Pay gives twelve for a bob.</div></div>
+        <div class="dialogue-block"><div class="speaker">Henry:</div><div class="dialogue-text">So go! Go to Pick 'n Pay. 'Cos here you wanna pick but you don't wanna pay.</div></div>
+        <div class="footnotes-section">
+          <div class="footnote-item"><strong>1. District Six:</strong> a community that was home to a rich mosaic of people of different faiths and races who, because of the Group Areas Act of the Nationalist Government, were forcibly removed in the 1970s from the area bordering the city of Cape Town</div>
+          <div class="footnote-item"><strong>2. ywe:</strong> onions</div>
+          <div class="footnote-item"><strong>3. raap:</strong> turnips</div>
+        </div>
+      </div>
+      <div class="page-footer">
+        <button class="translate-btn" onclick="showTranslation(0)"><span class="btn-icon">🌐</span> View English Translation</button>
+        <div class="page-nav">
+          <button class="nav-btn" onclick="prevPage()" disabled>← Prev</button>
+          <button class="nav-btn" onclick="nextPage()">Next →</button>
+        </div>
+      </div>
+      <div class="translation-overlay" id="trans-0">
+        <div class="translation-header">
+          <div>
+            <div class="translation-header-left">🌐 English Translation</div>
+            <div class="translation-header-subtitle">Act 1 Scene 1 · Page 19</div>
+          </div>
+          <button class="back-btn" onclick="hideTranslation(0)">◂ Back to Text</button>
+        </div>
+        <div class="translation-body">
+          <div class="translation-scene-title">Act 1 Scene 1 – English Version</div>
+          <div class="translation-note">The English parts remain as written. Afrikaans/Cape Malay expressions are translated below.</div>
+          <div class="trans-stage">Curtain up on a busy District Six street scene. People are going about their business. HENRY is next to his barrow filled with fruit and vegetables.</div>
+          <div class="trans-block">
+            <div class="trans-speaker">Henry:</div>
+            <div class="trans-original">En is aaartappel, ywe en tamaa-tie…</div>
+            <div class="trans-english">And here are potatoes, onions and tomatoes – hey! Tomatoes to fry, potatoes to braai. Tomorrow you cry. You know why? 'Cos you didn't buy.</div>
+          </div>
+          <div class="trans-block">
+            <div class="trans-speaker">Hawker:</div>
+            <div class="trans-original">Avocado pere maakie hare mere! Lekker patat maakie hare glad! Lekker raap virrie aap vannie Kaap!</div>
+            <div class="trans-english">Avocado pears make hair more beautiful! Sweet potato makes hair smooth! Lovely turnips for the people of the Cape!</div>
+          </div>
+          <div class="trans-block">
+            <div class="trans-speaker">Galiema:</div>
+            <div class="trans-english">Henry, are your bananas ripe?</div>
+          </div>
+          <div class="trans-block">
+            <div class="trans-speaker">Henry:</div>
+            <div class="trans-english">Press my number for fresh cucumber. [A playful, evasive answer – come find out for yourself.]</div>
+          </div>
+          <div class="trans-block">
+            <div class="trans-speaker">Galiema:</div>
+            <div class="trans-original">Gee net die blerrie prys!</div>
+            <div class="trans-english">Just give me the damn price!</div>
+          </div>
+          <div class="trans-block">
+            <div class="trans-speaker">Henry:</div>
+            <div class="trans-original">Daai's ten for a bob.</div>
+            <div class="trans-english">That's ten for a shilling (a bob).</div>
+          </div>
+          <div class="trans-block">
+            <div class="trans-speaker">Galiema:</div>
+            <div class="trans-original">Wat? Pick 'n Pay gives twelve for a bob.</div>
+            <div class="trans-english">What? Pick 'n Pay gives twelve for a shilling.</div>
+          </div>
+          <div class="trans-block">
+            <div class="trans-speaker">Henry:</div>
+            <div class="trans-english">So go! Go to Pick 'n Pay. Because here you want to pick [things up] but you don't want to pay.</div>
+          </div>
+        </div>
+      </div>
+    </div>
 
+    <!-- ===== PAGE 1: Scene 1 cont., p.20-21 ===== -->
+    <div class="book-page" id="page-1">
+      <div class="page-header">
+        <div class="page-header-left">District Six and Other Plays</div>
+        <div class="page-number-display">20 – 21</div>
+        <div class="page-header-right">District Six – the play</div>
+      </div>
+      <div class="page-body">
+        <div class="stage-direction">GOLDMAN, one of the older residents of District Six, approaches the barrow.</div>
+        <div class="dialogue-block"><div class="speaker">Henry:</div><div class="dialogue-text">Shalom, Mister Goldman. Some nice hanepoot grapes for the Shabbat<sup>4</sup> table?</div></div>
+        <div class="dialogue-block"><div class="speaker">Goldman:</div><div class="dialogue-text">Thank you, Henry. Just a few bunches. Business good?</div></div>
+        <div class="dialogue-block"><div class="speaker">Henry:</div><div class="dialogue-text">Ag, Mister Goldman. You know how it goes.</div></div>
+        <div class="dialogue-block"><div class="speaker">Goldman:</div><div class="dialogue-text">I know, I know. When has it ever been easy? <em>(HENRY hands him his packet of grapes and GOLDMAN takes an envelope out of his pocket.)</em> Do me a favour. This is for your daughter. Tell her to come and see me as soon as she can.</div></div>
+        <div class="dialogue-block"><div class="speaker">Henry:</div><div class="dialogue-text">No problem. Thanks, Mister Goldman.</div></div>
+        <div class="stage-direction">Some members of the SEXY BOYS gang are playing a card game sitting on the steps leading up to an alley. NINES, their leader, appears at the top of the steps.</div>
+        <div class="dialogue-block"><div class="speaker">Nines:</div><div class="dialogue-text">Yoiee! Ek sê. Make a way or I kick a main road!</div></div>
+        <div class="dialogue-block"><div class="speaker">Sexy Boys:</div><div class="dialogue-text">Owwww, Nines. Hoesit?<sup>5</sup></div></div>
+        <div class="dialogue-block"><div class="speaker">Nines:</div><div class="dialogue-text">Yus, julle ou rokers. Is ek geslat of wat?<sup>6</sup></div></div>
+        <div class="dialogue-block"><div class="speaker">Sexy Boys:</div><div class="dialogue-text">Djangerous,<sup>7</sup> my broer. Truly djangerous!</div></div>
+        <div class="dialogue-block"><div class="speaker">Nines:</div><div class="dialogue-text">Grand! You like my outfit? Remember that shipment. The one we stole from the Gran' Parade?<sup>8</sup> <em>(He indicates the outfit with his hands.)</em> Ou boeta Warty, the tailor, just disguised it for me.</div></div>
+        <div class="dialogue-block"><div class="speaker">Sexy Boys:</div><div class="dialogue-text">Djy mean!</div></div>
+        <div class="dialogue-block"><div class="speaker">Nines:</div><div class="dialogue-text">Ek sê, hoesit, Uncle Henry. Hoe lykkit<sup>9</sup> da' met 'n pa' hot tips.</div></div>
+        <div class="dialogue-block"><div class="speaker">Henry:</div><div class="dialogue-text">Jirre, Nines. Hot tips is mossie<sup>10</sup> aartappel en ywe nie. I can't just give it away.</div></div>
+        <div class="stage-direction" style="margin-top:20px;">— continued page 21 —</div>
+        <div class="dialogue-block" style="margin-top:16px;"><div class="speaker">Nines:</div><div class="dialogue-text">Ma' jy ken mos die père se stêre.<sup>11</sup> Don't be like that, man. You help me, I help you. Jy wiet mos hoe werk my ding.</div></div>
+        <div class="dialogue-block"><div class="speaker">Henry:</div><div class="dialogue-text">Ja, ma' jou ding is vim.</div></div>
+        <div class="dialogue-block"><div class="speaker">Nines:</div><div class="dialogue-text">Komaan, ou top. Tell me what you tink of dis combination.</div></div>
+        <div class="stage-direction">NINES and HENRY study the race card. MARY, HENRY'S daughter, approaches.</div>
+        <div class="dialogue-block"><div class="speaker">Mary:</div><div class="dialogue-text">Dêrra …<sup>12</sup></div></div>
+        <div class="dialogue-block"><div class="speaker">Henry:</div><div class="dialogue-text">Jus' wait a minute, my baby. Dêrra's tryna pick a winner here.</div></div>
+        <div class="dialogue-block"><div class="speaker">Mary:</div><div class="dialogue-text">Dêrra, if Dêrra wants my advice, Dêrra'll forget about the jackpot. Mammie's tryna save every penny for the house.</div></div>
+        <div class="dialogue-block"><div class="speaker">Henry:</div><div class="dialogue-text">Where do you think I'm gonna get that kinda money?</div></div>
+        <div class="dialogue-block"><div class="speaker">Mary:</div><div class="dialogue-text">Exactly. That's why Mammie don't want to hear that you wasting it on the horses.</div></div>
+        <div class="dialogue-block"><div class="speaker">Henry:</div><div class="dialogue-text">Ja, my darling, but you must unnerstand: Dêrra needs some extra money for the troupe.<sup>13</sup></div></div>
+        <div class="dialogue-block"><div class="speaker">Mary:</div><div class="dialogue-text">You promised Mommy. No klops<sup>14</sup> this year.</div></div>
+        <div class="dialogue-block"><div class="speaker">Nines:</div><div class="dialogue-text">Naai, hoe kan jy nou so sê? Onse klops is mossie beste innie hele District!</div></div>
+        <div class="dialogue-block"><div class="speaker">Sexy Boys:</div><div class="dialogue-text">Is ja!</div></div>
+        <div class="dialogue-block"><div class="speaker">Nines:</div><div class="dialogue-text">This year, Mary, we are gonna win all the trophies.</div></div>
+        <div class="dialogue-block"><div class="speaker">Mary:</div><div class="dialogue-text">In your dreams, ja. Dêrra, I must run.</div></div>
+        <div class="dialogue-block"><div class="speaker">Henry:</div><div class="dialogue-text">O, amper vergiet ek. Ou Goldman asked me to give you this.</div></div>
+        <div class="stage-direction">HENRY hands MARY a white envelope. She opens it and reads with excitement.</div>
+        <div class="footnotes-section">
+          <div class="footnote-item"><strong>4. Shabbat:</strong> the Jewish Sabbath (day of rest and worship)</div>
+          <div class="footnote-item"><strong>5. hoesit:</strong> (a greeting) how are you</div>
+          <div class="footnote-item"><strong>6. is ek geslat of wat:</strong> how do I look</div>
+          <div class="footnote-item"><strong>7. djangerous:</strong> well-dressed; stunning</div>
+          <div class="footnote-item"><strong>8. Gran' Parade:</strong> Grand Parade – a marketplace opposite the City Hall in Cape Town</div>
+          <div class="footnote-item"><strong>9. hoe lykkit:</strong> (lyk dit) how about giving me</div>
+          <div class="footnote-item"><strong>10. mossie:</strong> (mos nie) are, after all, not</div>
+          <div class="footnote-item"><strong>11. jy ken mos die père se stêre:</strong> you know which horses to bet on</div>
+          <div class="footnote-item"><strong>12. Dêrra:</strong> daddy</div>
+          <div class="footnote-item"><strong>13. troupe:</strong> minstrels</div>
+          <div class="footnote-item"><strong>14. klops (klopse):</strong> minstrels</div>
+        </div>
+      </div>
+      <div class="page-footer">
+        <button class="translate-btn" onclick="showTranslation(1)"><span class="btn-icon">🌐</span> View English Translation</button>
+        <div class="page-nav">
+          <button class="nav-btn" onclick="prevPage()">← Prev</button>
+          <button class="nav-btn" onclick="nextPage()">Next →</button>
+        </div>
+      </div>
+      <div class="translation-overlay" id="trans-1">
+        <div class="translation-header">
+          <div>
+            <div class="translation-header-left">🌐 English Translation</div>
+            <div class="translation-header-subtitle">Act 1 Scene 1 (cont.) · Pages 20–21</div>
+          </div>
+          <button class="back-btn" onclick="hideTranslation(1)">◂ Back to Text</button>
+        </div>
+        <div class="translation-body">
+          <div class="translation-scene-title">Act 1 Scene 1 – Continued</div>
+          <div class="translation-note">Afrikaans and Cape Malay expressions translated. English lines remain unchanged.</div>
+          <div class="trans-block"><div class="trans-speaker">Nines:</div><div class="trans-original">Yoiee! Ek sê. Make a way or I kick a main road!</div><div class="trans-english">Hey! I'm saying – move aside or I'll clear a path!</div></div>
+          <div class="trans-block"><div class="trans-speaker">Sexy Boys:</div><div class="trans-original">Owwww, Nines. Hoesit?</div><div class="trans-english">Wow, Nines. How are you? / How's it going?</div></div>
+          <div class="trans-block"><div class="trans-speaker">Nines:</div><div class="trans-original">Yus, julle ou rokers. Is ek geslat of wat?</div><div class="trans-english">Yes, you old rascals. Am I looking sharp or what?</div></div>
+          <div class="trans-block"><div class="trans-speaker">Sexy Boys:</div><div class="trans-original">Djangerous, my broer. Truly djangerous!</div><div class="trans-english">Dangerous [i.e. stunningly well-dressed], my brother. Truly dangerous!</div></div>
+          <div class="trans-block"><div class="trans-speaker">Nines:</div><div class="trans-original">Ek sê, hoesit, Uncle Henry. Hoe lykkit da' met 'n pa' hot tips.</div><div class="trans-english">I say, how goes it, Uncle Henry. How about giving me a few hot tips [on the horses]?</div></div>
+          <div class="trans-block"><div class="trans-speaker">Henry:</div><div class="trans-original">Jirre, Nines. Hot tips is mossie aartappel en ywe nie. I can't just give it away.</div><div class="trans-english">Gosh, Nines. Hot tips are, after all, not potatoes and onions [cheap commodities]. I can't just give them away.</div></div>
+          <div class="trans-block"><div class="trans-speaker">Nines:</div><div class="trans-original">Ma' jy ken mos die père se stêre.</div><div class="trans-english">But you know which horses to bet on.</div></div>
+          <div class="trans-block"><div class="trans-speaker">Henry:</div><div class="trans-original">Ja, ma' jou ding is vim.</div><div class="trans-english">Yes, but your thing [deal] is dodgy/unreliable.</div></div>
+          <div class="trans-block"><div class="trans-speaker">Nines:</div><div class="trans-original">Komaan, ou top. Tell me what you tink of dis combination.</div><div class="trans-english">Come on, old man. Tell me what you think of this combination [race bet].</div></div>
+          <div class="trans-block"><div class="trans-speaker">Mary:</div><div class="trans-original">Dêrra…</div><div class="trans-english">Daddy…</div></div>
+          <div class="trans-block"><div class="trans-speaker">Henry:</div><div class="trans-original">O, amper vergiet ek.</div><div class="trans-english">Oh, I almost forgot.</div></div>
+          <div class="trans-block"><div class="trans-speaker">Nines:</div><div class="trans-original">Naai, hoe kan jy nou so sê? Onse klops is mossie beste innie hele District!</div><div class="trans-english">No, how can you say that? Our minstrel troupe is, after all, the best in the whole District!</div></div>
+        </div>
+      </div>
+    </div>
 
-<script src="script.js"></script>
+    <!-- ===== PAGE 2: Scene 1 cont., p.22-23 ===== -->
+    <div class="book-page" id="page-2">
+      <div class="page-header">
+        <div class="page-header-left">District Six and Other Plays</div>
+        <div class="page-number-display">22 – 23</div>
+        <div class="page-header-right">District Six – the play</div>
+      </div>
+      <div class="page-body">
+        <div class="dialogue-block"><div class="speaker">Nines:</div><div class="dialogue-text">What does ou Gol'man say that puts such a smile on your dial?</div></div>
+        <div class="dialogue-block"><div class="speaker">Mary:</div><div class="dialogue-text">Wouldn't you just love to know.</div></div>
+        <div class="dialogue-block"><div class="speaker">Nines:</div><div class="dialogue-text">Ow! Jy switch my nogal af. A man is only asking.</div></div>
+        <div class="dialogue-block"><div class="speaker">Mary:</div><div class="dialogue-text">This is between me and Cassiem.</div></div>
+        <div class="dialogue-block"><div class="speaker">Nines:</div><div class="dialogue-text">Ag, you wasting your time with that moffie.<sup>15</sup></div></div>
+        <div class="dialogue-block"><div class="speaker">Mary:</div><div class="dialogue-text">Cassiem is jou man!</div></div>
+        <div class="dialogue-block"><div class="speaker">Nines:</div><div class="dialogue-text">Los vir hom, Mary. Sing with me! Jy wiet mos – ek is hot.</div></div>
+        <div class="dialogue-block"><div class="speaker">Mary:</div><div class="dialogue-text">Ja. But hot in the wrong spot!</div></div>
+        <div class="stage-direction">She hurries away.</div>
+        <div class="dialogue-block"><div class="speaker">Nines:</div><div class="dialogue-text">Ons twee, Mary, we – we set the night on fire.</div></div>
+        <div class="dialogue-block"><div class="speaker">Mary:</div><div class="dialogue-text">Nines! You! Will set your pants on fire.</div></div>
+        <div class="dialogue-block"><div class="speaker">Nines:</div><div class="dialogue-text">Isja! O's issie Sexy Boys!</div></div>
+        <div class="stage-direction">PANG, the tailor, is putting the finishing touches to a jacket.</div>
+        <div class="dialogue-block"><div class="speaker">Pang:</div><div class="dialogue-text">Nines, kom try aan jou jacket.</div></div>
+        <div class="dialogue-block"><div class="speaker">Henry:</div><div class="dialogue-text">What do you think, Pang? Fire Eyes, Sea Cottage, and Blue Bird. Blue Bird in the fourth leg … Blue Bird in the fourth leg?</div></div>
+        <div class="dialogue-block"><div class="speaker">Pang:</div><div class="dialogue-text">Ja, Blue Bird. Like that song. The one Vera Lynn<sup>16</sup> sang. Remember?</div></div>
+        <div class="dialogue-block"><div class="speaker">Henry:</div><div class="dialogue-text"><em>(Singing very loudly)</em> Dere'll be bloo burds over, de whi-i-i-te cluffs of Dover, tomorrow, jus' you wait an' see …!</div></div>
+        <div class="dialogue-block"><div class="speaker">Nines:</div><div class="dialogue-text">Ag naai, Uncle Henry. Sing something lekker, man. Before Antie Hester Raasbek come an' tell you to shut up.</div></div>
+        <div class="dialogue-block"><div class="speaker">Henry:</div><div class="dialogue-text">What! Aunty Hester stop me singing? She mos fell in love with this voice. She said, "Henry, sing me a song that make my knees freeze. An' let me feel my liver quiver." <em>(He sings in the style of Mario Lanza.<sup>17</sup>)</em> Be my love …!</div></div>
+        <div class="stage-direction" style="margin-top:20px;">— continued page 23 —</div>
+        <div class="stage-direction" style="margin-top:12px;">HESTER arrives with a bundle of washing that she has collected from the wash-house.</div>
+        <div class="dialogue-block"><div class="speaker">Hester:</div><div class="dialogue-text">Henry Afrika! Dink jy nou jy's 'ie Mario Lanza of the marketplace? Huh? Your barrow is not even empty, but still you got time to stand and serenade these skollies.</div></div>
+        <div class="dialogue-block"><div class="speaker">Nines:</div><div class="dialogue-text">Ow! Ons is mossie skollies 'ie, Antie Hester.</div></div>
+        <div class="dialogue-block"><div class="speaker">Hester:</div><div class="dialogue-text">What then?</div></div>
+        <div class="dialogue-block"><div class="speaker">Nines:</div><div class="dialogue-text">We … are … mobsters!</div></div>
+        <div class="dialogue-block"><div class="speaker">Hester:</div><div class="dialogue-text">Ja, mobsters and a lot of bleddie loafers!</div></div>
+        <div class="dialogue-block"><div class="speaker">Nines:</div><div class="dialogue-text">Ag, Antie Hester moenie so astrant wiesie.<sup>18</sup> Uncle Henry was only throwing a few tips my way.</div></div>
+        <div class="dialogue-block"><div class="speaker">Hester:</div><div class="dialogue-text">Tips! Don' waste your money. He always backs the losers.</div></div>
+        <div class="dialogue-block"><div class="speaker">Nines:</div><div class="dialogue-text">Not the jackpot, Antie Hester. Ek mean singing tips. 'Cos Uncle Henry says when he sings he makes Antie Hester's liver quiver.</div></div>
+        <div class="dialogue-block"><div class="speaker">Hester:</div><div class="dialogue-text">Wat, my liver quiver! Ek sal hom laat tap op sy lippe lat<sup>19</sup> hulle skewe bewe.</div></div>
+        <div class="dialogue-block"><div class="speaker">Henry:</div><div class="dialogue-text">Ag, Hester, ek is mos jou little Henry. A man is only trying to be happy.</div></div>
+        <div class="dialogue-block"><div class="speaker">Hester:</div><div class="dialogue-text">You think I don't know what you do behind my back? Wasting our money on gambling. Kom nou, ga' verkoop 'ie goed an' hurry up. Otherwise I'm going to be late with the supper!</div></div>
+        <div class="dialogue-block"><div class="speaker">Henry:</div><div class="dialogue-text">Where the woman goes, the man goes.</div></div>
+        <div class="dialogue-block"><div class="speaker">Hester:</div><div class="dialogue-text">Wat sê djy?</div></div>
+        <div class="dialogue-block"><div class="speaker">Henry:</div><div class="dialogue-text">Mangoes! Mangoes! Four bob a kissie.<sup>20</sup></div></div>
+        <div class="footnotes-section">
+          <div class="footnote-item"><strong>15. moffie:</strong> (derogatory) gay; homosexual</div>
+          <div class="footnote-item"><strong>16. Vera Lynn:</strong> a singer in the 1940s, popular during World War II</div>
+          <div class="footnote-item"><strong>17. Mario Lanza:</strong> a (tenor) singer who sang opera</div>
+          <div class="footnote-item"><strong>18. astrant wiesie:</strong> (wees nie) don't be cheeky</div>
+          <div class="footnote-item"><strong>19. lat:</strong> (dat) so that</div>
+          <div class="footnote-item"><strong>20. kissie:</strong> small box</div>
+        </div>
+      </div>
+      <div class="page-footer">
+        <button class="translate-btn" onclick="showTranslation(2)"><span class="btn-icon">🌐</span> View English Translation</button>
+        <div class="page-nav">
+          <button class="nav-btn" onclick="prevPage()">← Prev</button>
+          <button class="nav-btn" onclick="nextPage()">Next →</button>
+        </div>
+      </div>
+      <div class="translation-overlay" id="trans-2">
+        <div class="translation-header">
+          <div><div class="translation-header-left">🌐 English Translation</div><div class="translation-header-subtitle">Act 1 Scene 1 (cont.) · Pages 22–23</div></div>
+          <button class="back-btn" onclick="hideTranslation(2)">◂ Back to Text</button>
+        </div>
+        <div class="translation-body">
+          <div class="translation-scene-title">Act 1 Scene 1 – Continued</div>
+          <div class="translation-note">Afrikaans expressions translated below; English lines remain as written.</div>
+          <div class="trans-block"><div class="trans-speaker">Nines:</div><div class="trans-original">Ow! Jy switch my nogal af.</div><div class="trans-english">Oh! You're actually putting me off / turning me away.</div></div>
+          <div class="trans-block"><div class="trans-speaker">Mary:</div><div class="trans-original">Cassiem is jou man!</div><div class="trans-english">Cassiem is your kind of man! [implying Cassiem is just as she wants, not Nines]</div></div>
+          <div class="trans-block"><div class="trans-speaker">Nines:</div><div class="trans-original">Los vir hom, Mary. Sing with me! Jy wiet mos – ek is hot.</div><div class="trans-english">Leave him, Mary. Sing with me! You know – I am hot.</div></div>
+          <div class="trans-block"><div class="trans-speaker">Nines:</div><div class="trans-original">Isja! O's issie Sexy Boys!</div><div class="trans-english">Indeed! We are the Sexy Boys!</div></div>
+          <div class="trans-block"><div class="trans-speaker">Pang:</div><div class="trans-original">Nines, kom try aan jou jacket.</div><div class="trans-english">Nines, come try on your jacket.</div></div>
+          <div class="trans-block"><div class="trans-speaker">Nines:</div><div class="trans-original">Ag naai, Uncle Henry. Sing something lekker, man.</div><div class="trans-english">Oh no, Uncle Henry. Sing something nice/enjoyable, man.</div></div>
+          <div class="trans-block"><div class="trans-speaker">Hester:</div><div class="trans-original">Dink jy nou jy's 'ie Mario Lanza of the marketplace?</div><div class="trans-english">Do you think you're the Mario Lanza of the marketplace?</div></div>
+          <div class="trans-block"><div class="trans-speaker">Nines:</div><div class="trans-original">Ow! Ons is mossie skollies 'ie, Antie Hester.</div><div class="trans-english">Oh! We are not gangsters, Aunt Hester.</div></div>
+          <div class="trans-block"><div class="trans-speaker">Nines:</div><div class="trans-original">Ag, Antie Hester moenie so astrant wiesie.</div><div class="trans-english">Ag, Aunt Hester, don't be so cheeky/impudent.</div></div>
+          <div class="trans-block"><div class="trans-speaker">Hester:</div><div class="trans-original">Ek sal hom laat tap op sy lippe lat hulle skewe bewe.</div><div class="trans-english">I will make him tap his lips so that they tremble crookedly. [A comical threat]</div></div>
+          <div class="trans-block"><div class="trans-speaker">Henry:</div><div class="trans-original">Ag, Hester, ek is mos jou little Henry.</div><div class="trans-english">Ag, Hester, I am, after all, your little Henry. [appealing to her affection]</div></div>
+          <div class="trans-block"><div class="trans-speaker">Hester:</div><div class="trans-original">Kom nou, ga' verkoop 'ie goed an' hurry up.</div><div class="trans-english">Come now, go and sell the stuff and hurry up.</div></div>
+          <div class="trans-block"><div class="trans-speaker">Hester:</div><div class="trans-original">Wat sê djy?</div><div class="trans-english">What are you saying?</div></div>
+          <div class="trans-block"><div class="trans-speaker">Henry:</div><div class="trans-original">Mangoes! Mangoes! Four bob a kissie.</div><div class="trans-english">Mangoes! Mangoes! Four shillings for a small box. [Henry cleverly switches to hawking his produce]</div></div>
+        </div>
+      </div>
+    </div>
 
+    <!-- ===== PAGE 3: Scene 2, p.24 ===== -->
+    <div class="book-page" id="page-3">
+      <div class="page-header">
+        <div class="page-header-left">District Six and Other Plays</div>
+        <div class="page-number-display">24</div>
+        <div class="page-header-right">District Six – the play</div>
+      </div>
+      <div class="page-body">
+        <div class="scene-heading">Act 1 Scene 2</div>
+        <div class="stage-direction">Seven Steps, Hanover Street. VOSLOO enters the District. PANG sees him and goes into his building. When VOSLOO knocks he doesn't answer. BROERTJIE is helping DAMAKA find his way down the steps.</div>
+        <div class="dialogue-block"><div class="speaker">Damaka:</div><div class="dialogue-text">Slowly, my boy. Slowly. <em>(DAMAKA sits on a box near the steps.)</em> Come, Broertjie. Where's the newspaper? Come, read for me now.</div></div>
+        <div class="dialogue-block"><div class="speaker">Broertjie:</div><div class="dialogue-text">Naai, Damaka, man. Time is tight.</div></div>
+        <div class="dialogue-block"><div class="speaker">Damaka:</div><div class="dialogue-text">Just the headlines.</div></div>
+        <div class="dialogue-block"><div class="speaker">Broertjie:</div><div class="dialogue-text">But the front page is always bad news, Damaka.</div></div>
+        <div class="dialogue-block"><div class="speaker">Damaka:</div><div class="dialogue-text">Wait? Whose footsteps are those?</div></div>
+        <div class="dialogue-block"><div class="speaker">Broertjie:</div><div class="dialogue-text">Naai, ek wietie. Ma' isse whitey.</div></div>
+        <div class="dialogue-block"><div class="speaker">Damaka:</div><div class="dialogue-text">Is it one of those inspectors from the Group?<sup>21</sup></div></div>
+        <div class="dialogue-block"><div class="speaker">Broertjie:</div><div class="dialogue-text">Ja, miskien. Hy't daai Pretoria style. Damaka wiet mos: safari suit en 'n hele ry ballpoint pens in sy top pocket.</div></div>
+        <div class="dialogue-block"><div class="speaker">Vosloo:</div><div class="dialogue-text">En julle tweetjies? Wie is julle?</div></div>
+        <div class="dialogue-block"><div class="speaker">Damaka:</div><div class="dialogue-text">Master want to buy some special remedies? Geelwortel for the rheumatism?</div></div>
+        <div class="dialogue-block"><div class="speaker">Vosloo:</div><div class="dialogue-text">No, that's not what I'm looking for.</div></div>
+        <div class="dialogue-block"><div class="speaker">Broertjie:</div><div class="dialogue-text">'n Bietjie donkiedrol? Dassiepis, my lanie?<sup>22</sup></div></div>
+        <div class="dialogue-block"><div class="speaker">Vosloo:</div><div class="dialogue-text">Now look. Don't get clever with me, boy! I'm from the Department of Community Development and I've got some forms here you must fill in for me.</div></div>
+        <div class="dialogue-block"><div class="speaker">Damaka:</div><div class="dialogue-text">But, baas can mos see I'm blind.</div></div>
+        <div class="dialogue-block"><div class="speaker">Vosloo:</div><div class="dialogue-text">Ja, ja. Well, I'll just have to fill it in for you, won't I?</div></div>
+        <div class="dialogue-block"><div class="speaker">Damaka:</div><div class="dialogue-text">What is it you want from me?</div></div>
+        <div class="dialogue-block"><div class="speaker">Vosloo:</div><div class="dialogue-text">I need your name, what you do, where you live, your race group and so on.</div></div>
+        <div class="footnotes-section">
+          <div class="footnote-item"><strong>21. the Group:</strong> the Group Areas Act</div>
+          <div class="footnote-item"><strong>22. lanie:</strong> master; sir (with overtones of scorn)</div>
+        </div>
+      </div>
+      <div class="page-footer">
+        <button class="translate-btn" onclick="showTranslation(3)"><span class="btn-icon">🌐</span> View English Translation</button>
+        <div class="page-nav">
+          <button class="nav-btn" onclick="prevPage()">← Prev</button>
+          <button class="nav-btn" onclick="nextPage()">Next →</button>
+        </div>
+      </div>
+      <div class="translation-overlay" id="trans-3">
+        <div class="translation-header">
+          <div><div class="translation-header-left">🌐 English Translation</div><div class="translation-header-subtitle">Act 1 Scene 2 · Page 24</div></div>
+          <button class="back-btn" onclick="hideTranslation(3)">◂ Back to Text</button>
+        </div>
+        <div class="translation-body">
+          <div class="translation-scene-title">Act 1 Scene 2</div>
+          <div class="translation-note">Seven Steps, Hanover Street. A government inspector (Vosloo) enters and confronts two residents.</div>
+          <div class="trans-block"><div class="trans-speaker">Broertjie:</div><div class="trans-original">Naai, Damaka, man. Time is tight.</div><div class="trans-english">No, Damaka, man. Time is short / I don't have time now.</div></div>
+          <div class="trans-block"><div class="trans-speaker">Broertjie:</div><div class="trans-original">Naai, ek wietie. Ma' isse whitey.</div><div class="trans-english">No, I don't know. But it's a white man.</div></div>
+          <div class="trans-block"><div class="trans-speaker">Broertjie:</div><div class="trans-original">Ja, miskien. Hy't daai Pretoria style. Damaka wiet mos: safari suit en 'n hele ry ballpoint pens in sy top pocket.</div><div class="trans-english">Yes, maybe. He has that Pretoria style. Damaka, you know the type: safari suit and a whole row of ballpoint pens in his top pocket.</div></div>
+          <div class="trans-block"><div class="trans-speaker">Vosloo:</div><div class="trans-original">En julle tweetjies? Wie is julle?</div><div class="trans-english">And you two? Who are you?</div></div>
+          <div class="trans-block"><div class="trans-speaker">Damaka:</div><div class="trans-original">Master want to buy some special remedies? Geelwortel for the rheumatism?</div><div class="trans-english">Master wants to buy some special remedies? Yellow-root [a herb] for the rheumatism?</div></div>
+          <div class="trans-block"><div class="trans-speaker">Broertjie:</div><div class="trans-original">'n Bietjie donkiedrol? Dassiepis, my lanie?</div><div class="trans-english">A little donkey dung [traditional remedy]? Rock hyrax urine [another traditional remedy], my master/sir?</div></div>
+          <div class="trans-block"><div class="trans-speaker">Damaka:</div><div class="trans-original">But, baas can mos see I'm blind.</div><div class="trans-english">But, boss/master can surely see that I am blind.</div></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ===== PAGE 4: Scene 2 cont. + Scene 3 start, p.25 ===== -->
+    <div class="book-page" id="page-4">
+      <div class="page-header">
+        <div class="page-header-left">District Six and Other Plays</div>
+        <div class="page-number-display">25</div>
+        <div class="page-header-right">District Six – the play</div>
+      </div>
+      <div class="page-body">
+        <div class="dialogue-block"><div class="speaker">Damaka:</div><div class="dialogue-text">And then what will you do?</div></div>
+        <div class="dialogue-block"><div class="speaker">Vosloo:</div><div class="dialogue-text">Well, this information will go to the Board. And then they process it and at some point allocate you alternative accommodation.</div></div>
+        <div class="dialogue-block"><div class="speaker">Damaka:</div><div class="dialogue-text">Where? A new location? Far away, I suppose. Where everyone's a stranger and every street's the same.</div></div>
+        <div class="dialogue-block"><div class="speaker">Vosloo:</div><div class="dialogue-text">Well, that's not for me to say. The Board will decide.</div></div>
+        <div class="dialogue-block"><div class="speaker">Damaka:</div><div class="dialogue-text">Ja, the Board will decide. The Board, the Department, the Government! They'll decide this, they'll decide that. They'll stick a pencil in your hair and tell you whether you are white or you are black. Whether you stay or whether you go.</div></div>
+        <div class="dialogue-block"><div class="speaker">Vosloo:</div><div class="dialogue-text">Look, I'm just doing my job! Now, I need to know your name!</div></div>
+        <div class="dialogue-block"><div class="speaker">Damaka:</div><div class="dialogue-text">The people – they call me Damaka.</div></div>
+        <div class="dialogue-block"><div class="speaker">Vosloo:</div><div class="dialogue-text">Surname?</div></div>
+        <div class="dialogue-block"><div class="speaker">Damaka:</div><div class="dialogue-text">The blind man. The Swahili.</div></div>
+        <div class="dialogue-block"><div class="speaker">Vosloo:</div><div class="dialogue-text">Listen, the form requires me to fill in a family name.</div></div>
+        <div class="dialogue-block"><div class="speaker">Damaka:</div><div class="dialogue-text">I have no family. District Six is my family.</div></div>
+        <div class="dialogue-block"><div class="speaker">Vosloo:</div><div class="dialogue-text">Where were you born?</div></div>
+        <div class="dialogue-block"><div class="speaker">Damaka:</div><div class="dialogue-text">This is the only place I have ever known.</div></div>
+        <div class="dialogue-block"><div class="speaker">Vosloo:</div><div class="dialogue-text">Where do you live?</div></div>
+        <div class="dialogue-block"><div class="speaker">Damaka:</div><div class="dialogue-text">Here! On the streets.</div></div>
+        <div class="dialogue-block"><div class="speaker">Vosloo:</div><div class="dialogue-text">God, man! What do I fill in on the form?</div></div>
+        <div class="dialogue-block"><div class="speaker">Damaka:</div><div class="dialogue-text">Put there like Elvis Presley said: "Return to sender. Address unknown". Come, Broertjie!</div></div>
+
+        <div class="scene-heading" style="margin-top:28px;">Act 1 Scene 3</div>
+        <div class="stage-direction">On the stoep of a District Six house. CASSIEM is reading the letter. MARY is seated next to him.</div>
+        <div class="dialogue-block"><div class="speaker">Mary:</div><div class="dialogue-text">You see. I told you if we keep trying something will happen.</div></div>
+      </div>
+      <div class="page-footer">
+        <button class="translate-btn" onclick="showTranslation(4)"><span class="btn-icon">🌐</span> View English Translation</button>
+        <div class="page-nav">
+          <button class="nav-btn" onclick="prevPage()">← Prev</button>
+          <button class="nav-btn" onclick="nextPage()">Next →</button>
+        </div>
+      </div>
+      <div class="translation-overlay" id="trans-4">
+        <div class="translation-header">
+          <div><div class="translation-header-left">🌐 English Translation</div><div class="translation-header-subtitle">Act 1 Scene 2 (cont.) + Scene 3 · Page 25</div></div>
+          <button class="back-btn" onclick="hideTranslation(4)">◂ Back to Text</button>
+        </div>
+        <div class="translation-body">
+          <div class="translation-scene-title">Scene 2 Conclusion & Scene 3 Opening</div>
+          <div class="translation-note">This page contains primarily English dialogue with a few Afrikaans words. The key themes are Damaka's defiant refusal to be categorised by the apartheid bureaucracy.</div>
+          <div class="trans-block"><div class="trans-speaker">Damaka:</div><div class="trans-english">Ja [Yes], the Board will decide... They'll stick a pencil in your hair and tell you whether you are white or you are black. [This refers to the infamous "pencil test" used to classify people's race under apartheid.]</div></div>
+          <div class="trans-block"><div class="trans-speaker">Damaka:</div><div class="trans-english">I have no family. District Six is my family. [A powerful statement of community identity over bureaucratic classification.]</div></div>
+          <div class="trans-block"><div class="trans-speaker">Damaka:</div><div class="trans-english">Put there like Elvis Presley said: "Return to sender. Address unknown." Come, Broertjie! [Damaka mocks the form with an Elvis Presley song title, then refuses to engage further.]</div></div>
+          <div style="margin-top:20px; padding-top:16px; border-top:1px solid var(--rule-line);">
+            <div class="translation-scene-title">Act 1 Scene 3 – Opening</div>
+            <div class="trans-stage">On the stoep [front porch] of a District Six house. CASSIEM is reading a letter. MARY is seated next to him.</div>
+            <div class="trans-block"><div class="trans-speaker">Mary:</div><div class="trans-english">You see. I told you if we keep trying something will happen.</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ===== PAGE 5: Scene 3 cont., p.26-27 ===== -->
+    <div class="book-page" id="page-5">
+      <div class="page-header">
+        <div class="page-header-left">District Six and Other Plays</div>
+        <div class="page-number-display">26 – 27</div>
+        <div class="page-header-right">District Six – the play</div>
+      </div>
+      <div class="page-body">
+        <div class="dialogue-block"><div class="speaker">Cassiem:</div><div class="dialogue-text">Ag, this is kak, man. He can't be serious. What do you think he really wants?</div></div>
+        <div class="dialogue-block"><div class="speaker">Mary:</div><div class="dialogue-text">What you mean, what he really wants? It says there he wants to hear the song.</div></div>
+        <div class="dialogue-block"><div class="speaker">Cassiem:</div><div class="dialogue-text">Ja, the song, the song. But … I mean … it's just one that you wrote.</div></div>
+        <div class="dialogue-block"><div class="speaker">Mary:</div><div class="dialogue-text">Oh, so now it's just a song.</div></div>
+        <div class="dialogue-block"><div class="speaker">Cassiem:</div><div class="dialogue-text">It's got to be more than just the song.</div></div>
+        <div class="dialogue-block"><div class="speaker">Mary:</div><div class="dialogue-text">When I wrote it you said you thought it was wonderful. "Beautiful" was what you said. I thought you liked the song, Cassiem.</div></div>
+        <div class="dialogue-block"><div class="speaker">Cassiem:</div><div class="dialogue-text">Ja, I do. But Mary you know it doesn't work like that. Not here in District Six. I mean … go to the Star Bioscope. Just go and try and sing your own song. You know what'll happen.</div></div>
+        <div class="dialogue-block"><div class="speaker">Mary:</div><div class="dialogue-text">How will we know if we never try!</div></div>
+        <div class="dialogue-block"><div class="speaker">Cassiem:</div><div class="dialogue-text">The gangsters will shout, "Gat sing jou song innie shower!" If you don't sing something they know, they'll throw you with a bottle.</div></div>
+        <div class="dialogue-block"><div class="speaker">Mary:</div><div class="dialogue-text">Ag, you give up so easy. You never gonna make it if you don't try.</div></div>
+        <div class="dialogue-block"><div class="speaker">Cassiem:</div><div class="dialogue-text">Doesn't matter how talented I am, they still gonna slam the door in my face.</div></div>
+        <div class="dialogue-block"><div class="speaker">Mary:</div><div class="dialogue-text">That's not what the letter says.</div></div>
+        <div class="dialogue-block"><div class="speaker">Cassiem:</div><div class="dialogue-text">Even if ou Goldman wants to record this song – whose gonna play it? Huh? There's no coloured radio station out there.</div></div>
+        <div class="dialogue-block"><div class="speaker">Mary:</div><div class="dialogue-text">There's the "Protea Club" on Springbok Radio.</div></div>
+        <div class="dialogue-block"><div class="speaker">Cassiem:</div><div class="dialogue-text">What? Twelve minutes every second Saturday!</div></div>
+        <div class="dialogue-block"><div class="speaker">Mary:</div><div class="dialogue-text">Maybe that's all we need. We'll never know if we don't give it a chance.</div></div>
+        <div class="dialogue-block"><div class="speaker">Cassiem:</div><div class="dialogue-text">Ag! You always see the silver lining.</div></div>
+        <div class="dialogue-block"><div class="speaker">Mary:</div><div class="dialogue-text">If you gonna keep being so negative, then nothing is ever going to happen.</div></div>
+        <div class="stage-direction" style="margin-top:20px;">— continued page 27 —</div>
+        <div class="dialogue-block" style="margin-top:16px;"><div class="speaker">Cassiem:</div><div class="dialogue-text">Ja, well you know how bedonnerd this makes me.</div></div>
+        <div class="dialogue-block"><div class="speaker">Mary:</div><div class="dialogue-text">Ag, come on man … what have you got to lose?</div></div>
+        <div class="dialogue-block"><div class="speaker">Cassiem:</div><div class="dialogue-text">Lose! That's all we ever do is lose. Our dignity! Our rights! The dice is always loaded against us, Mary.</div></div>
+        <div class="stage-direction">She embraces and kisses him.</div>
+        <div class="dialogue-block"><div class="speaker">Mary:</div><div class="dialogue-text">Do it for me, Cassiem.</div></div>
+        <div class="footnotes-section">
+          <div class="footnote-item"><strong>Note:</strong> "Kak" is a crude Afrikaans word meaning nonsense/rubbish. "Bedonnerd" means angry/upset/mad.</div>
+          <div class="footnote-item"><strong>Gat sing jou song innie shower:</strong> "Go sing your song in the shower" – an insulting dismissal</div>
+        </div>
+      </div>
+      <div class="page-footer">
+        <button class="translate-btn" onclick="showTranslation(5)"><span class="btn-icon">🌐</span> View English Translation</button>
+        <div class="page-nav">
+          <button class="nav-btn" onclick="prevPage()">← Prev</button>
+          <button class="nav-btn" onclick="nextPage()">Next →</button>
+        </div>
+      </div>
+      <div class="translation-overlay" id="trans-5">
+        <div class="translation-header">
+          <div><div class="translation-header-left">🌐 English Translation</div><div class="translation-header-subtitle">Act 1 Scene 3 · Pages 26–27</div></div>
+          <button class="back-btn" onclick="hideTranslation(5)">◂ Back to Text</button>
+        </div>
+        <div class="translation-body">
+          <div class="translation-scene-title">Act 1 Scene 3 – Full Translation</div>
+          <div class="translation-note">Mary and Cassiem debate whether to pursue their musical opportunity with Goldman. Cassiem is pessimistic; Mary is the optimist.</div>
+          <div class="trans-block"><div class="trans-speaker">Cassiem:</div><div class="trans-original">Ag, this is kak, man.</div><div class="trans-english">Ag, this is rubbish/nonsense, man.</div></div>
+          <div class="trans-block"><div class="trans-speaker">Cassiem:</div><div class="trans-original">The gangsters will shout, "Gat sing jou song innie shower!"</div><div class="trans-english">The gangsters will shout, "Go sing your song in the shower!" [meaning: nobody wants to hear your original music]</div></div>
+          <div class="trans-block"><div class="trans-speaker">Cassiem:</div><div class="trans-original">Ja, well you know how bedonnerd this makes me.</div><div class="trans-english">Yes, well you know how upset/mad this makes me.</div></div>
+          <div class="trans-block"><div class="trans-speaker">Cassiem:</div><div class="trans-english">Lose! That's all we ever do is lose. Our dignity! Our rights! The dice is always loaded against us, Mary. [Cassiem gives voice to the hopelessness felt by coloured people under apartheid – systemic discrimination made success seem impossible.]</div></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ===== PAGE 6: Scene 4, p.27-28 ===== -->
+    <div class="book-page" id="page-6">
+      <div class="page-header">
+        <div class="page-header-left">District Six and Other Plays</div>
+        <div class="page-number-display">27 – 28</div>
+        <div class="page-header-right">District Six – the play</div>
+      </div>
+      <div class="page-body">
+        <div class="scene-heading">Act 1 Scene 4</div>
+        <div class="stage-direction">The SEXY BOYS are standing round a galley.<sup>23</sup> They are toasting sausages over the flames. BROERTJIE slinks over.</div>
+        <div class="dialogue-block"><div class="speaker">Sexy Boy:</div><div class="dialogue-text">At last. Where were you so long, hey?</div></div>
+        <div class="dialogue-block"><div class="speaker">Broertjie:</div><div class="dialogue-text">Ek 't mos innie queue gestaan. Da's baie mense vanaand by Abasie.</div></div>
+        <div class="dialogue-block"><div class="speaker">Sexy Boy:</div><div class="dialogue-text">Nou waarsie polonies?</div></div>
+        <div class="dialogue-block"><div class="speaker">Broertjie:</div><div class="dialogue-text">Die honne 't dit opgevriet.</div></div>
+        <div class="dialogue-block"><div class="speaker">Sexy Boy:</div><div class="dialogue-text">Moenie kak praatie. Watte honne?</div></div>
+        <div class="dialogue-block"><div class="speaker">Broertjie:</div><div class="dialogue-text">Aap Honne se honne. Hulle 't my attack.</div></div>
+        <div class="dialogue-block"><div class="speaker">Sexy Boy:</div><div class="dialogue-text">Ek sal <em>jou</em> blerrie attack. Kom hiesa.<sup>24</sup></div></div>
+        <div class="dialogue-block"><div class="speaker">Nines:</div><div class="dialogue-text">Yay, lossie laaitie.<sup>25</sup> Is orraait. If he did say the dogs did him attack, dan 't 'ie honne hom ge-attack. Verstaan djy. <em>(SEXY BOY grumbles under his breath. NINES offers BROERTJIE a sausage.)</em> Hiesa, Broertjie. Djy's sieka honger.</div></div>
+        <div class="dialogue-block"><div class="speaker">Sexy Boy:</div><div class="dialogue-text">Hoekom protec' jy die laaitie so?</div></div>
+        <div class="dialogue-block"><div class="speaker">Nines:</div><div class="dialogue-text">Because you tink you Tarzan en maak vir hom 'n apie.<sup>26</sup></div></div>
+        <div class="dialogue-block"><div class="speaker">Sexy Boy:</div><div class="dialogue-text">Are you his father, or what?</div></div>
+        <div class="stage-direction" style="margin-top:20px;">— continued page 28 —</div>
+        <div class="dialogue-block" style="margin-top:16px;"><div class="speaker">Nines:</div><div class="dialogue-text">Dat's for me to know an' for you to guess. <em>(DAMAKA arrives tapping his cane down the Seven Steps. He pushes his way through NINES and the SEXY BOYS.)</em> Ek sê, Damaka. Switch aan jou indicators. You walk like an accident trying hard to happen.</div></div>
+        <div class="dialogue-block"><div class="speaker">Damaka:</div><div class="dialogue-text">Just stay out of my way, Nines.</div></div>
+        <div class="stage-direction">NINES grabs DAMAKA'S stick.</div>
+        <div class="dialogue-block"><div class="speaker">Nines:</div><div class="dialogue-text">Hoekom is jy so omgekrap? Kom hiesa. Sit op jou boks. <em>(NINES removes the box. DAMAKA almost falls.)</em> Naai, hysie blind 'ie. Hy speel blind.</div></div>
+        <div class="dialogue-block"><div class="speaker">Damaka:</div><div class="dialogue-text">For you everything is a joke. But one day you won't be laughing so loudly anymore.</div></div>
+        <div class="dialogue-block"><div class="speaker">Nines:</div><div class="dialogue-text">Hoe praat jy dan nou?</div></div>
+        <div class="dialogue-block"><div class="speaker">Damaka:</div><div class="dialogue-text">You got eyes but you don't use them. You got ears but you don't hear.</div></div>
+        <div class="dialogue-block"><div class="speaker">Nines:</div><div class="dialogue-text">What you been smoking old man?</div></div>
+        <div class="dialogue-block"><div class="speaker">Damaka:</div><div class="dialogue-text">Things are changing, Nines – faster than you can imagine.</div></div>
+        <div class="footnotes-section">
+          <div class="footnote-item"><strong>23. galley:</strong> metal drum with holes, used for making fires</div>
+          <div class="footnote-item"><strong>24. hiesa:</strong> (hierso) here</div>
+          <div class="footnote-item"><strong>25. laaitie:</strong> youngster; young boy</div>
+          <div class="footnote-item"><strong>26. maak vir hom 'n apie:</strong> you are mocking him</div>
+        </div>
+      </div>
+      <div class="page-footer">
+        <button class="translate-btn" onclick="showTranslation(6)"><span class="btn-icon">🌐</span> View English Translation</button>
+        <div class="page-nav">
+          <button class="nav-btn" onclick="prevPage()">← Prev</button>
+          <button class="nav-btn" onclick="nextPage()">Next →</button>
+        </div>
+      </div>
+      <div class="translation-overlay" id="trans-6">
+        <div class="translation-header">
+          <div><div class="translation-header-left">🌐 English Translation</div><div class="translation-header-subtitle">Act 1 Scene 4 · Pages 27–28</div></div>
+          <button class="back-btn" onclick="hideTranslation(6)">◂ Back to Text</button>
+        </div>
+        <div class="translation-body">
+          <div class="translation-scene-title">Act 1 Scene 4 – English Translation</div>
+          <div class="translation-note">The Sexy Boys are gathered around a fire drum. Broertjie arrives without the sausages he was sent to buy.</div>
+          <div class="trans-block"><div class="trans-speaker">Broertjie:</div><div class="trans-original">Ek 't mos innie queue gestaan. Da's baie mense vanaand by Abasie.</div><div class="trans-english">I was, after all, standing in the queue. There are a lot of people tonight at Abasie's [a shop].</div></div>
+          <div class="trans-block"><div class="trans-speaker">Sexy Boy:</div><div class="trans-original">Nou waarsie polonies?</div><div class="trans-english">Now where are the polonies [sausages]?</div></div>
+          <div class="trans-block"><div class="trans-speaker">Broertjie:</div><div class="trans-original">Die honne 't dit opgevriet.</div><div class="trans-english">The dogs ate/devoured it.</div></div>
+          <div class="trans-block"><div class="trans-speaker">Sexy Boy:</div><div class="trans-original">Moenie kak praatie. Watte honne?</div><div class="trans-english">Don't talk rubbish. What dogs?</div></div>
+          <div class="trans-block"><div class="trans-speaker">Broertjie:</div><div class="trans-original">Aap Honne se honne. Hulle 't my attack.</div><div class="trans-english">Aap Honne's [someone's nickname] dogs. They attacked me.</div></div>
+          <div class="trans-block"><div class="trans-speaker">Sexy Boy:</div><div class="trans-original">Ek sal jou blerrie attack. Kom hiesa.</div><div class="trans-english">I will bloody attack you. Come here.</div></div>
+          <div class="trans-block"><div class="trans-speaker">Nines:</div><div class="trans-original">Yay, lossie laaitie…Hiesa, Broertjie. Djy's sieka honger.</div><div class="trans-english">Hey, leave the young boy alone… Here, Broertjie. You must be hungry.</div></div>
+          <div class="trans-block"><div class="trans-speaker">Sexy Boy:</div><div class="trans-original">Hoekom protec' jy die laaitie so?</div><div class="trans-english">Why do you protect the young boy like that?</div></div>
+          <div class="trans-block"><div class="trans-speaker">Nines:</div><div class="trans-original">Because you tink you Tarzan en maak vir hom 'n apie.</div><div class="trans-english">Because you think you're Tarzan and you make a fool/monkey of him.</div></div>
+          <div class="trans-block"><div class="trans-speaker">Nines:</div><div class="trans-original">Ek sê, Damaka. Switch aan jou indicators.</div><div class="trans-english">I say, Damaka. Switch on your indicators [be more careful where you're going].</div></div>
+          <div class="trans-block"><div class="trans-speaker">Nines:</div><div class="trans-original">Hoekom is jy so omgekrap?…Naai, hysie blind 'ie. Hy speel blind.</div><div class="trans-english">Why are you so upset/unsettled?…No, he's not really blind. He's playing blind.</div></div>
+          <div class="trans-block"><div class="trans-speaker">Nines:</div><div class="trans-original">Hoe praat jy dan nou?</div><div class="trans-english">What are you talking about then now?</div></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ===== PAGE 7: Scene 4 cont. + Scene 5 start, p.28-29 ===== -->
+    <div class="book-page" id="page-7">
+      <div class="page-header">
+        <div class="page-header-left">District Six and Other Plays</div>
+        <div class="page-number-display">28 – 29</div>
+        <div class="page-header-right">District Six – the play</div>
+      </div>
+      <div class="page-body">
+        <div class="dialogue-block"><div class="speaker">Nines:</div><div class="dialogue-text">I told you before. Ek raakie involved met politics 'ie.</div></div>
+        <div class="dialogue-block"><div class="speaker">Damaka:</div><div class="dialogue-text">But politics, Nines, will become involved with you. I might be blind, but I still know what's happening around me. The world is changing, my boy, but you can't see it.</div></div>
+        <div class="dialogue-block"><div class="speaker">Nines:</div><div class="dialogue-text">Hulle kan ma' kom met al hulle laws. Hie', in District Six, is ekkie lô!<sup>27</sup></div></div>
+        <div class="dialogue-block"><div class="speaker">Damaka:</div><div class="dialogue-text">Ja, Nines. You take me for a guy. Think I'm talking nonsense. But one day, when this is all gone, kneel down there by the Seven Steps. And listen, my boy. Listen to the stones. Because when people forget, the stones will remember. And one day there will be nothing but the stones.</div></div>
+        <div class="dialogue-block"><div class="speaker">Nines:</div><div class="dialogue-text">Naai, ou top.<sup>28</sup> Jy's lekker mal. We've always lived here. District Six belongs to us!</div></div>
+
+        <div class="scene-heading" style="margin-top:28px;">Act 1 Scene 5</div>
+        <div class="stage-direction">Interior of StarTone Records. GOLDMAN'S office walls are decorated with black and white photographs of famous people in the entertainment world. Most of the pictures are of GOLDMAN, his arms around the shoulders of British and American recording stars. Here and there we also see Gold Record awards in frames. MARY and CASSIEM are looking at the photographs on the walls.</div>
+        <div class="stage-direction">GOLDMAN ends his telephone conversation.</div>
+        <div class="dialogue-block"><div class="speaker">Mary:</div><div class="dialogue-text">Is this really Cliff Richard? With you, Mister Goldman?</div></div>
+        <div class="dialogue-block"><div class="speaker">Goldman:</div><div class="dialogue-text">And why not? In my business, you get to meet them all: stars, superstars, royalty, smoyalty. The whole bleddie caboodle.<sup>29</sup> It's nothing. Nothing to get excited about. <em>(An attractive young woman enters. She has an SLR<sup>30</sup> camera slung over her shoulder. She goes over and pecks the old man on his cheek.)</em> Sandy, my darling. I want you to meet these two bright young things. This is Mary and this is Cassiem.</div></div>
+        <div class="dialogue-block"><div class="speaker">Sandy:</div><div class="dialogue-text">Pleased to meet you.</div></div>
+        <div class="dialogue-block"><div class="speaker">Goldman:</div><div class="dialogue-text">My granddaughter, Sandy. Can you believe? She's come all the way from London to visit me. Never been to Cape Town before. Very reluctant to come and visit me down here at the foot of Africa.</div></div>
+        <div class="dialogue-block"><div class="speaker">Sandy:</div><div class="dialogue-text">Granddad, you know the reason for that.</div></div>
+        <div class="dialogue-block"><div class="speaker">Goldman:</div><div class="dialogue-text">Ja, ja, I know. The "political situation". Now, I want you to listen to these two songbirds and tell me what you think.</div></div>
+        <div class="dialogue-block"><div class="speaker">Sandy:</div><div class="dialogue-text">Mind if I take a few piccies?<sup>31</sup></div></div>
+        <div class="dialogue-block"><div class="speaker">Cassiem:</div><div class="dialogue-text">Of us? Now?</div></div>
+        <div class="dialogue-block"><div class="speaker">Mary:</div><div class="dialogue-text">But we're not dressed properly.</div></div>
+        <div class="dialogue-block"><div class="speaker">Goldman:</div><div class="dialogue-text">Don't worry. She's an art student.</div></div>
+        <div class="dialogue-block"><div class="speaker">Sandy:</div><div class="dialogue-text">It's for my portfolio.</div></div>
+        <div class="dialogue-block"><div class="speaker">Goldman:</div><div class="dialogue-text">So, there's the piano. Sit, stand, sing. Relax. I'm all ears.</div></div>
+        <div class="footnotes-section">
+          <div class="footnote-item"><strong>27. is ekkie lô:</strong> I am the law</div>
+          <div class="footnote-item"><strong>28. ou top:</strong> old man</div>
+          <div class="footnote-item"><strong>29. caboodle:</strong> (informal) everything; the whole lot</div>
+          <div class="footnote-item"><strong>30. SLR:</strong> single lens reflex camera</div>
+          <div class="footnote-item"><strong>31. piccies:</strong> pictures; photographs</div>
+        </div>
+      </div>
+      <div class="page-footer">
+        <button class="translate-btn" onclick="showTranslation(7)"><span class="btn-icon">🌐</span> View English Translation</button>
+        <div class="page-nav">
+          <button class="nav-btn" onclick="prevPage()">← Prev</button>
+          <button class="nav-btn" onclick="nextPage()">Next →</button>
+        </div>
+      </div>
+      <div class="translation-overlay" id="trans-7">
+        <div class="translation-header">
+          <div><div class="translation-header-left">🌐 English Translation</div><div class="translation-header-subtitle">Act 1 Scene 4–5 · Pages 28–29</div></div>
+          <button class="back-btn" onclick="hideTranslation(7)">◂ Back to Text</button>
+        </div>
+        <div class="translation-body">
+          <div class="translation-scene-title">Scene 4 End – Damaka's Prophecy</div>
+          <div class="trans-block"><div class="trans-speaker">Nines:</div><div class="trans-original">Ek raakie involved met politics 'ie.</div><div class="trans-english">I don't really get involved with politics.</div></div>
+          <div class="trans-block"><div class="trans-speaker">Nines:</div><div class="trans-original">Hulle kan ma' kom met al hulle laws. Hie', in District Six, is ekkie lô!</div><div class="trans-english">They can come with all their laws. Here, in District Six, I am the law!</div></div>
+          <div class="trans-block"><div class="trans-speaker">Nines:</div><div class="trans-original">Naai, ou top. Jy's lekker mal.</div><div class="trans-english">No, old man. You're quite crazy/mad.</div></div>
+          <div style="margin-top:20px; padding-top:16px; border-top:1px solid var(--rule-line);">
+            <div class="translation-scene-title">Act 1 Scene 5 – StarTone Records</div>
+            <div class="translation-note">This scene is primarily in English. Goldman introduces Mary and Cassiem to his granddaughter Sandy from London. The scene contrasts Goldman's glamorous world with the harsh reality outside.</div>
+            <div class="trans-block"><div class="trans-speaker">Goldman:</div><div class="trans-original">…smoyalty. The whole bleddie caboodle.</div><div class="trans-english">"Smoyalty" is a comic made-up rhyme word (like "royalty-smoyalty"), mocking the idea of being impressed by royalty. "Caboodle" means the whole lot/everything.</div></div>
+            <div class="trans-block"><div class="trans-speaker">Sandy:</div><div class="trans-original">Mind if I take a few piccies?</div><div class="trans-english">Do you mind if I take a few pictures/photos?</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ===== PAGE 8: Scene 5 cont., p.30-31 ===== -->
+    <div class="book-page" id="page-8">
+      <div class="page-header">
+        <div class="page-header-left">District Six and Other Plays</div>
+        <div class="page-number-display">30 – 31</div>
+        <div class="page-header-right">District Six – the play</div>
+      </div>
+      <div class="page-body">
+        <div class="stage-direction">MARY adjusts her clothes a little nervously. She notices that SANDY has caught CASSIEM'S eye.</div>
+        <div class="dialogue-block"><div class="speaker">Mary:</div><div class="dialogue-text">Maybe we can do this some other time, Mister Goldman.</div></div>
+        <div class="dialogue-block"><div class="speaker">Sandy:</div><div class="dialogue-text">Oh, don't mind me.</div></div>
+        <div class="dialogue-block"><div class="speaker">Cassiem:</div><div class="dialogue-text">Maybe Mister Goldman can come hear us there by the club?</div></div>
+        <div class="dialogue-block"><div class="speaker">Goldman:</div><div class="dialogue-text">When are you singing?</div></div>
+        <div class="dialogue-block"><div class="speaker">Mary:</div><div class="dialogue-text">On Saturday, Mister Goldman.</div></div>
+        <div class="dialogue-block"><div class="speaker">Cassiem:</div><div class="dialogue-text">Do you know the Blue Moon Jazz Club?</div></div>
+        <div class="dialogue-block"><div class="speaker">Goldman:</div><div class="dialogue-text">Of course I know it. I live here, don't I? Sophia's place.</div></div>
+        <div class="dialogue-block"><div class="speaker">Mary:</div><div class="dialogue-text">You should come listen to us there, Mister Goldman. We'll have the band and everything.</div></div>
+        <div class="dialogue-block"><div class="speaker">Goldman:</div><div class="dialogue-text">That's not a bad idea. Sandy, you need to get out and about. See the sights. What you think?</div></div>
+        <div class="dialogue-block"><div class="speaker">Sandy:</div><div class="dialogue-text">Sounds wonderful.</div></div>
+        <div class="dialogue-block"><div class="speaker">Goldman:</div><div class="dialogue-text">Good. We'll see you on Saturday. And then we'll talk.</div></div>
+        <div class="stage-direction">GOLDMAN gets up, shakes their hands and MARY and CASSIEM leave. GOLDMAN pulls up a chair and he and SANDY sit down to talk.</div>
+        <div class="dialogue-block"><div class="speaker">Goldman:</div><div class="dialogue-text">So, tell me. What do you think?</div></div>
+        <div class="dialogue-block"><div class="speaker">Sandy:</div><div class="dialogue-text">Well, I think he's all right, but … umm … I mean … duets aren't exactly top of the pops right now, are they?</div></div>
+        <div class="dialogue-block"><div class="speaker">Goldman:</div><div class="dialogue-text">Explain.</div></div>
+        <div class="dialogue-block"><div class="speaker">Sandy:</div><div class="dialogue-text">I mean, a romantic couple, singing to one another. Please. It's so passé.<sup>32</sup></div></div>
+        <div class="dialogue-block"><div class="speaker">Goldman:</div><div class="dialogue-text">Which means?</div></div>
+        <div class="dialogue-block"><div class="speaker">Sandy:</div><div class="dialogue-text">Well, it's all rather fifties, isn't it. Old hat, I'd say.</div></div>
+        <div class="dialogue-block"><div class="speaker">Goldman:</div><div class="dialogue-text">So, if you had to choose?</div></div>
+        <div class="dialogue-block"><div class="speaker">Sandy:</div><div class="dialogue-text">You say she's the talent?</div></div>
+        <div class="stage-direction" style="margin-top:20px;">— continued page 31 —</div>
+        <div class="dialogue-block" style="margin-top:16px;"><div class="speaker">Goldman:</div><div class="dialogue-text">She writes, she sings. And not bad looking.</div></div>
+        <div class="dialogue-block"><div class="speaker">Sandy:</div><div class="dialogue-text">But my money would be on the young man. That's if you wanted to sell records.</div></div>
+        <div class="dialogue-block"><div class="speaker">Goldman:</div><div class="dialogue-text">Oh? And why him and not her?</div></div>
+        <div class="dialogue-block"><div class="speaker">Sandy:</div><div class="dialogue-text">Because, Granddad, you may or may not have noticed: it's the young girls that buy the records.</div></div>
+        <div class="footnotes-section">
+          <div class="footnote-item"><strong>32. passé:</strong> old-fashioned</div>
+        </div>
+      </div>
+      <div class="page-footer">
+        <button class="translate-btn" onclick="showTranslation(8)"><span class="btn-icon">🌐</span> View English Translation</button>
+        <div class="page-nav">
+          <button class="nav-btn" onclick="prevPage()">← Prev</button>
+          <button class="nav-btn" onclick="nextPage()">Next →</button>
+        </div>
+      </div>
+      <div class="translation-overlay" id="trans-8">
+        <div class="translation-header">
+          <div><div class="translation-header-left">🌐 English Translation</div><div class="translation-header-subtitle">Act 1 Scene 5 (cont.) · Pages 30–31</div></div>
+          <button class="back-btn" onclick="hideTranslation(8)">◂ Back to Text</button>
+        </div>
+        <div class="translation-body">
+          <div class="translation-scene-title">Act 1 Scene 5 – Continued</div>
+          <div class="translation-note">This scene is almost entirely in English. Goldman and Sandy discuss Mary and Cassiem's talent and commercial potential. The key translated word is "passé."</div>
+          <div class="trans-block"><div class="trans-speaker">Sandy:</div><div class="trans-original">It's so passé.</div><div class="trans-english">"Passé" (French, used in English) means out of date, old-fashioned, no longer current or trendy.</div></div>
+          <div class="trans-block"><div class="trans-speaker">Sandy:</div><div class="trans-english">But my money would be on the young man. That's if you wanted to sell records. [Sandy suggests Goldman focus on Cassiem alone, rather than the duet with Mary – foreshadowing the conflict ahead.]</div></div>
+          <div class="trans-block"><div class="trans-speaker">Sandy:</div><div class="trans-english">Because, Granddad, you may or may not have noticed: it's the young girls that buy the records. [Sandy provides a sharp commercial insight: male solo artists attract female buyers, which drives record sales.]</div></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ===== PAGE 9: Scene 6, p.31-33 ===== -->
+    <div class="book-page" id="page-9">
+      <div class="page-header">
+        <div class="page-header-left">District Six and Other Plays</div>
+        <div class="page-number-display">31 – 33</div>
+        <div class="page-header-right">District Six – the play</div>
+      </div>
+      <div class="page-body">
+        <div class="scene-heading">Act 1 Scene 6</div>
+        <div class="stage-direction">VOSLOO is knocking at the door of the AFRIKAS' home. HESTER looks out over the balcony. HENRY sees her and frantically signals to her that she must hide.</div>
+        <div class="dialogue-block"><div class="speaker">Vosloo:</div><div class="dialogue-text">God! Not again. Die blerrie mense. <em>(He steps off the stoep and shouts up at the balcony.)</em> Hello! Hello, anybody home? Anybody there? Hello!</div></div>
+        <div class="dialogue-block"><div class="speaker">Henry:</div><div class="dialogue-text">Morning, Master. I got some lekker hanepoot here for the baas.</div></div>
+        <div class="dialogue-block"><div class="speaker">Vosloo:</div><div class="dialogue-text">Listen, do you know who lives here in this house?</div></div>
+        <div class="dialogue-block"><div class="speaker">Henry:</div><div class="dialogue-text">Naai, ek wietie. Master wanna taste my hanepoot? Sweet as mother's milk.</div></div>
+        <div class="dialogue-block"><div class="speaker">Vosloo:</div><div class="dialogue-text">Look, man. I got a blerrie job to do here. I got forms and things that have to be filled in.</div></div>
+        <div class="dialogue-block"><div class="speaker">Henry:</div><div class="dialogue-text">Only one-an'-six a pound, Master.</div></div>
+        <div class="dialogue-block"><div class="speaker">Vosloo:</div><div class="dialogue-text">But nobody around here wants to give me a straight answer. What can be so blerrie difficult about answering a few simple questions?</div></div>
+        <div class="dialogue-block"><div class="speaker">Henry:</div><div class="dialogue-text">Try the grapes, my basie.</div></div>
+        <div class="dialogue-block"><div class="speaker">Vosloo:</div><div class="dialogue-text">Huh, can you tell me that? <em>(He tastes the grapes.)</em> Mmmm. So what's your name, huh?</div></div>
+        <div class="dialogue-block"><div class="speaker">Henry:</div><div class="dialogue-text">My name?</div></div>
+        <div class="dialogue-block"><div class="speaker">Vosloo:</div><div class="dialogue-text">Ja, your name and address?</div></div>
+        <div class="dialogue-block"><div class="speaker">Henry:</div><div class="dialogue-text">Master wanna send me a Christmas card?</div></div>
+        <div class="stage-direction" style="margin-top:20px;">— continued p.32–33 —</div>
+        <div class="dialogue-block" style="margin-top:16px;"><div class="speaker">Vosloo:</div><div class="dialogue-text">What is it with you people, hey? The Board is only trying to help, but as soon as we start asking a few questions then people can't even remember their own names.</div></div>
+        <div class="dialogue-block"><div class="speaker">Henry:</div><div class="dialogue-text">Ek is ma' net Henry, my baas. A simple hawker.</div></div>
+        <div class="dialogue-block"><div class="speaker">Vosloo:</div><div class="dialogue-text">Who don't want to co-operate with me. A simple hawker, nè. So where's your hawker's licence?</div></div>
+        <div class="dialogue-block"><div class="speaker">Henry:</div><div class="dialogue-text">Hoe praat 'ie baas 'an nou?</div></div>
+        <div class="dialogue-block"><div class="speaker">Vosloo:</div><div class="dialogue-text">So where's your hawker's coat, huh? You know the regulations.</div></div>
+        <div class="stage-direction">HENRY quickly pulls on his white coat.</div>
+        <div class="dialogue-block"><div class="speaker">Henry:</div><div class="dialogue-text">Hie's 'ie coat, my lanie.</div></div>
+        <div class="dialogue-block"><div class="speaker">Vosloo:</div><div class="dialogue-text">And the badge. Where's your hawker's badge?</div></div>
+        <div class="dialogue-block"><div class="speaker">Henry:</div><div class="dialogue-text">O, Gottalla!<sup>33</sup> Waar's my badge? I had it this morning.</div></div>
+        <div class="dialogue-block"><div class="speaker">Vosloo:</div><div class="dialogue-text">That's what you skêlms all say. Kom, maak gou. Find the badge. Otherwise, I confiscate all this stuff.</div></div>
+        <div class="dialogue-block"><div class="speaker">Henry:</div><div class="dialogue-text">No, you can't, my baas.</div></div>
+        <div class="dialogue-block"><div class="speaker">Vosloo:</div><div class="dialogue-text">Are you telling me I don't know the law? <em>(HENRY shakes his head.)</em> Then find the badge.</div></div>
+        <div class="stage-direction">HENRY searches desperately through his pockets until he eventually produces the brass badge.</div>
+        <div class="dialogue-block"><div class="speaker">Henry:</div><div class="dialogue-text">Algamduri' Allah!<sup>34</sup> Oh, thank God I found it.</div></div>
+        <div class="dialogue-block"><div class="speaker">Vosloo:</div><div class="dialogue-text">You blerrie lucky. Now put some grapes in the packet for the baas.</div></div>
+        <div class="stage-direction">HENRY flips open a packet and puts in some grapes. He adds a bunch of black grapes.</div>
+        <div class="dialogue-block"><div class="speaker">Henry:</div><div class="dialogue-text">'n Bietjie swartes virrie colour. <em>(He gives the grapes and starts calculating the price.)</em> Daai's nou five pounds of grapes at one-an'-six, makes …</div></div>
+        <div class="footnotes-section">
+          <div class="footnote-item"><strong>33. Gottalla:</strong> a combination of God and Allah, used as an exclamation of distress</div>
+          <div class="footnote-item"><strong>34. Algamduri' Allah:</strong> thank God</div>
+          <div class="footnote-item"><strong>35. klong:</strong> (derogatory) a term used to refer to young black or coloured men/boys</div>
+          <div class="footnote-item"><strong>36. sy ma se moer:</strong> literally, his mother's womb; obscene exclamation and grossly insulting</div>
+          <div class="footnote-item"><strong>37. gatvol:</strong> (obscene) fed up; had enough</div>
+        </div>
+      </div>
+      <div class="page-footer">
+        <button class="translate-btn" onclick="showTranslation(9)"><span class="btn-icon">🌐</span> View English Translation</button>
+        <div class="page-nav">
+          <button class="nav-btn" onclick="prevPage()">← Prev</button>
+          <button class="nav-btn" onclick="nextPage()">Next →</button>
+        </div>
+      </div>
+      <div class="translation-overlay" id="trans-9">
+        <div class="translation-header">
+          <div><div class="translation-header-left">🌐 English Translation</div><div class="translation-header-subtitle">Act 1 Scene 6 · Pages 31–33</div></div>
+          <button class="back-btn" onclick="hideTranslation(9)">◂ Back to Text</button>
+        </div>
+        <div class="translation-body">
+          <div class="translation-scene-title">Act 1 Scene 6 – Henry vs. The Inspector</div>
+          <div class="translation-note">Vosloo tries to conduct an official survey of residents; Henry cleverly evades him using his fruit stall as cover.</div>
+          <div class="trans-block"><div class="trans-speaker">Vosloo:</div><div class="trans-original">Die blerrie mense.</div><div class="trans-english">The bloody/wretched people.</div></div>
+          <div class="trans-block"><div class="trans-speaker">Henry:</div><div class="trans-original">I got some lekker hanepoot here for the baas.</div><div class="trans-english">I have some nice/delicious hanepoot [a variety of white grape] here for the boss/master.</div></div>
+          <div class="trans-block"><div class="trans-speaker">Henry:</div><div class="trans-original">Naai, ek wietie. Master wanna taste my hanepoot? Sweet as mother's milk.</div><div class="trans-english">No, I don't know. Does Master want to taste my grapes? Sweet as mother's milk.</div></div>
+          <div class="trans-block"><div class="trans-speaker">Henry:</div><div class="trans-original">Ek is ma' net Henry, my baas. A simple hawker.</div><div class="trans-english">I am, after all, just Henry, my boss. A simple hawker/street vendor.</div></div>
+          <div class="trans-block"><div class="trans-speaker">Henry:</div><div class="trans-original">Hoe praat 'ie baas 'an nou?</div><div class="trans-english">What is the boss talking about now?</div></div>
+          <div class="trans-block"><div class="trans-speaker">Henry:</div><div class="trans-original">Hie's 'ie coat, my lanie.</div><div class="trans-english">Here is the coat, my master/sir.</div></div>
+          <div class="trans-block"><div class="trans-speaker">Henry:</div><div class="trans-original">O, Gottalla! Waar's my badge?</div><div class="trans-english">Oh, God-and-Allah! [A Cape Malay exclamation combining both faiths] Where is my badge?</div></div>
+          <div class="trans-block"><div class="trans-speaker">Vosloo:</div><div class="trans-original">Kom, maak gou.</div><div class="trans-english">Come, hurry up.</div></div>
+          <div class="trans-block"><div class="trans-speaker">Henry:</div><div class="trans-original">Algamduri' Allah! Oh, thank God I found it.</div><div class="trans-english">"Algamduri' Allah" is from Arabic "Alhamdulillah" meaning "Praise be to God" / "Thank God."</div></div>
+          <div class="trans-block"><div class="trans-speaker">Henry:</div><div class="trans-original">'n Bietjie swartes virrie colour.</div><div class="trans-english">A few black ones for the colour. [Henry adds black grapes to give the bunch colour/visual appeal – a subtle joke with the word "colour" given the apartheid context.]</div></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ===== PAGE 10: Scene 6 cont., p.33 ===== -->
+    <div class="book-page" id="page-10">
+      <div class="page-header">
+        <div class="page-header-left">District Six and Other Plays</div>
+        <div class="page-number-display">33</div>
+        <div class="page-header-right">District Six – the play</div>
+      </div>
+      <div class="page-body">
+        <div class="stage-direction">SANDY approaches with her camera.</div>
+        <div class="dialogue-block"><div class="speaker">Sandy:</div><div class="dialogue-text">Mind if I take a photo?</div></div>
+        <div class="dialogue-block"><div class="speaker">Vosloo:</div><div class="dialogue-text">Excuse me, girlie, but you shouldn't be wandering around here on your own.</div></div>
+        <div class="dialogue-block"><div class="speaker">Sandy:</div><div class="dialogue-text">Oh, why ever not?</div></div>
+        <div class="dialogue-block"><div class="speaker">Vosloo:</div><div class="dialogue-text">Because this is District Six. A blerrie crime-ridden slum. The place is full of skollies and things.</div></div>
+        <div class="dialogue-block"><div class="speaker">Sandy:</div><div class="dialogue-text">Skollies?</div></div>
+        <div class="dialogue-block"><div class="speaker">Vosloo:</div><div class="dialogue-text">Uh … thieves, gangsters. This is a very dangerous place. And if I were you, I'd put that camera away now.</div></div>
+        <div class="dialogue-block"><div class="speaker">Henry:</div><div class="dialogue-text">Mêrrem wanna take a photo?</div></div>
+        <div class="dialogue-block"><div class="speaker">Sandy:</div><div class="dialogue-text">If you don't mind posing next to your barrow.</div></div>
+        <div class="dialogue-block"><div class="speaker">Vosloo:</div><div class="dialogue-text">What kind of picture is this that you are taking?</div></div>
+        <div class="dialogue-block"><div class="speaker">Sandy:</div><div class="dialogue-text">Just a black-and-white photograph.</div></div>
+        <div class="dialogue-block"><div class="speaker">Henry:</div><div class="dialogue-text">Daai's reg, ja! Ek is mos black en master is white. Ons moet altwee innie foto wees.</div></div>
+        <div class="dialogue-block"><div class="speaker">Vosloo:</div><div class="dialogue-text">God, klong,<sup>35</sup> don't waste my time. Now if I catch you without your coat again there's gonna be trouble. You understand me?</div></div>
+        <div class="dialogue-block"><div class="speaker">Henry:</div><div class="dialogue-text">Ja, my koning.</div></div>
+        <div class="dialogue-block"><div class="speaker">Vosloo:</div><div class="dialogue-text">It's time you people showed a little respect for the law.</div></div>
+        <div class="stage-direction">VOSLOO leaves. When he is out of earshot HENRY shouts.</div>
+        <div class="dialogue-block"><div class="speaker">Henry:</div><div class="dialogue-text">Ek 'ettie die lô gemaakie. Hoekom moet ekkit respek?</div></div>
+        <div class="dialogue-block"><div class="speaker">Sandy:</div><div class="dialogue-text">What an awful man. Is he a policeman?</div></div>
+        <div class="dialogue-block"><div class="speaker">Henry:</div><div class="dialogue-text">Ag, he's jus' one of those inspectors from the Group. Thinks he can control me! Sy ma se moer,<sup>36</sup> man! Ek is gatvol<sup>37</sup> virrie lô!</div></div>
+      </div>
+      <div class="page-footer">
+        <button class="translate-btn" onclick="showTranslation(10)"><span class="btn-icon">🌐</span> View English Translation</button>
+        <div class="page-nav">
+          <button class="nav-btn" onclick="prevPage()">← Prev</button>
+          <button class="nav-btn" onclick="nextPage()">Next →</button>
+        </div>
+      </div>
+      <div class="translation-overlay" id="trans-10">
+        <div class="translation-header">
+          <div><div class="translation-header-left">🌐 English Translation</div><div class="translation-header-subtitle">Act 1 Scene 6 (cont.) · Page 33</div></div>
+          <button class="back-btn" onclick="hideTranslation(10)">◂ Back to Text</button>
+        </div>
+        <div class="translation-body">
+          <div class="translation-scene-title">Scene 6 – Henry's Defiance</div>
+          <div class="trans-block"><div class="trans-speaker">Henry:</div><div class="trans-original">Mêrrem wanna take a photo?</div><div class="trans-english">Ma'am wants to take a photo? [Henry uses "mêrrem" for "madam," addressing Sandy respectfully]</div></div>
+          <div class="trans-block"><div class="trans-speaker">Henry:</div><div class="trans-original">Daai's reg, ja! Ek is mos black en master is white. Ons moet altwee innie foto wees.</div><div class="trans-english">That's right, yes! I am, after all, black and the master is white. We must both be in the photo. [Henry makes a witty, ironic comment about the black-and-white photo mirroring the racial divide]</div></div>
+          <div class="trans-block"><div class="trans-speaker">Vosloo:</div><div class="trans-original">God, klong, don't waste my time.</div><div class="trans-english">God, boy/youngster [highly derogatory racial term], don't waste my time.</div></div>
+          <div class="trans-block"><div class="trans-speaker">Henry:</div><div class="trans-original">Ja, my koning.</div><div class="trans-english">Yes, my king. [Said respectfully to Vosloo's face, sarcastically in spirit]</div></div>
+          <div class="trans-block"><div class="trans-speaker">Henry:</div><div class="trans-original">Ek 'ettie die lô gemaakie. Hoekom moet ekkit respek?</div><div class="trans-english">I didn't make the law. So why must I respect it?</div></div>
+          <div class="trans-block"><div class="trans-speaker">Henry:</div><div class="trans-original">Sy ma se moer, man! Ek is gatvol virrie lô!</div><div class="trans-english">His mother's womb, man! [A very crude Afrikaans curse] I am completely fed up with the law!</div></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ===== PAGE 11: Scene 7, p.34-35 ===== -->
+    <div class="book-page" id="page-11">
+      <div class="page-header">
+        <div class="page-header-left">District Six and Other Plays</div>
+        <div class="page-number-display">34 – 35</div>
+        <div class="page-header-right">District Six – the play</div>
+      </div>
+      <div class="page-body">
+        <div class="scene-heading">Act 1 Scene 7</div>
+        <div class="stage-direction">Interior of PANG'S tailor shop. PANG is working behind a sewing machine. NINES enters with a bolt of cloth under his arm.</div>
+        <div class="dialogue-block"><div class="speaker">Nines:</div><div class="dialogue-text">Ou Pang! Nou wat dink djy van die lap?</div></div>
+        <div class="stage-direction">NINES pulls a magazine from his pocket.</div>
+        <div class="dialogue-block"><div class="speaker">Pang:</div><div class="dialogue-text">Die lap issie eintlik Harris tweed 'ie. Verstaan djy?</div></div>
+        <div class="dialogue-block"><div class="speaker">Nines:</div><div class="dialogue-text">Ag, ou Pang, djy wiet mos wat die Jorre<sup>38</sup> sê: Never mind the quality, feel de width.</div></div>
+        <div class="dialogue-block"><div class="speaker">Pang:</div><div class="dialogue-text">Ma' dies lap is somma junk, ou Nines. Not even the Japs<sup>39</sup> would have the temerity<sup>40</sup> to bring me such a cloth.</div></div>
+        <div class="dialogue-block"><div class="speaker">Nines:</div><div class="dialogue-text">Temerity? Ou Pang, moenie hie' kô vissies spieg 'ie.<sup>41</sup> Los 'aai groot woore uit en maak net 'n plan. Annerste maak ou Nines 'n plan met ou Pang. Jy ken mossie storie. The choice, as dey say in de classics, is yours.</div></div>
+        <div class="stage-direction">Enter HENRY.</div>
+        <div class="dialogue-block"><div class="speaker">Henry:</div><div class="dialogue-text">Ouens, kô kyk hiesa. Nines, look what just arrived.</div></div>
+        <div class="stage-direction">HENRY whips out some small colourful umbrellas, opens them and dances a little jig with one in each hand. NINES gives a whistle of appreciation.</div>
+        <div class="dialogue-block"><div class="speaker">Nines:</div><div class="dialogue-text">Isja, Uncle Henry! Die colours is kwaai!<sup>42</sup></div></div>
+        <div class="dialogue-block"><div class="speaker">Henry:</div><div class="dialogue-text">But that's not all. Look what I got. Ou Pang, hoe lyk jy die satin?<sup>43</sup></div></div>
+        <div class="stage-direction">HENRY produces fabric to match the umbrellas. The others gather round feeling and admiring the cloth.</div>
+        <div class="dialogue-block"><div class="speaker">Pang:</div><div class="dialogue-text">Ou Nines, die's nou satin. But not a word to anyone, nè.</div></div>
+        <div class="dialogue-block"><div class="speaker">Henry:</div><div class="dialogue-text">Die colours is top secret.</div></div>
+        <div class="stage-direction" style="margin-top:20px;">— continued page 35 —</div>
+        <div class="dialogue-block" style="margin-top:16px;"><div class="speaker">Pang:</div><div class="dialogue-text">Because this year our klops is going to walk away with the trophy for Best Dressed.</div></div>
+        <div class="dialogue-block"><div class="speaker">Nines:</div><div class="dialogue-text">Wat praat djy my broer! Not jus' Best Dressed, but Best Solo, Best Juvenile, Best Combined Chorus.</div></div>
+        <div class="dialogue-block"><div class="speaker">Henry:</div><div class="dialogue-text">And we will march back from the Green Point track, up Hanover Street holding the trophies high, my broer.</div></div>
+        <div class="dialogue-block"><div class="speaker">Pang:</div><div class="dialogue-text">Here's your jacket, Henry. I want you to quickly try it on.</div></div>
+        <div class="stage-direction">HENRY slips on a sparkling tailcoat that PANG has cut. HESTER and GALIEMA arrive, but PANG and HENRY don't see them.</div>
+        <div class="dialogue-block"><div class="speaker">Pang:</div><div class="dialogue-text">So, what you think. How's the fit?</div></div>
+        <div class="dialogue-block"><div class="speaker">Henry:</div><div class="dialogue-text">Fits like a stocking on a lady's leg, ek sê.</div></div>
+        <div class="dialogue-block"><div class="speaker">Hester:</div><div class="dialogue-text">Jy lossie ladies, hô. En watse klopse nonsens is hie' aanie gan, huh?</div></div>
+        <div class="dialogue-block"><div class="speaker">Henry:</div><div class="dialogue-text">Oh, hello, my darling. No, I was just helping ou Pang here. Dissie my gê<sup>44</sup> nie.</div></div>
+        <div class="dialogue-block"><div class="speaker">Hester:</div><div class="dialogue-text">Ja, you better watch your step, 'cos if it wasn't for this … <em>(She holds up an official-looking envelope.)</em> … Galiema's letter, het ek jou nou somma onnerstebo geskop. Pang, read there for us, kanala.<sup>45</sup></div></div>
+        <div class="dialogue-block"><div class="speaker">Pang:</div><div class="dialogue-text">Is it a love letter?</div></div>
+        <div class="dialogue-block"><div class="speaker">Nines:</div><div class="dialogue-text">A love letter? So who's the lucky ou, Galiema?</div></div>
+        <div class="dialogue-block"><div class="speaker">Hester:</div><div class="dialogue-text">Moenie jou hie kô stupid hou nie, hô.</div></div>
+        <div class="stage-direction">PANG reads the letter.</div>
+        <div class="dialogue-block"><div class="speaker">Nines:</div><div class="dialogue-text">So what does it say?</div></div>
+        <div class="stage-direction">PANG goes over to GALIEMA.</div>
+        <div class="dialogue-block"><div class="speaker">Hester:</div><div class="dialogue-text">Is it what I think?</div></div>
+        <div class="stage-direction">PANG nods.</div>
+        <div class="dialogue-block"><div class="speaker">Pang:</div><div class="dialogue-text">They say she has to move.</div></div>
+        <div class="footnotes-section">
+          <div class="footnote-item"><strong>38. Jorre:</strong> Jews</div>
+          <div class="footnote-item"><strong>39. Japs:</strong> Japanese; at that time the quality of goods made in Japan was regarded as inferior</div>
+          <div class="footnote-item"><strong>40. temerity:</strong> boldness; marked by a foolish lack of good judgement</div>
+          <div class="footnote-item"><strong>41. moenie hie' kô vissies spieg 'ie:</strong> stop trying to be posh</div>
+          <div class="footnote-item"><strong>42. kwaai:</strong> beautiful; the best</div>
+          <div class="footnote-item"><strong>43. hoe lyk jy die satin:</strong> how do you like this satin; what do you think of this satin</div>
+          <div class="footnote-item"><strong>44. gê:</strong> outfit; costume</div>
+          <div class="footnote-item"><strong>45. kanala:</strong> please</div>
+        </div>
+      </div>
+      <div class="page-footer">
+        <button class="translate-btn" onclick="showTranslation(11)"><span class="btn-icon">🌐</span> View English Translation</button>
+        <div class="page-nav">
+          <button class="nav-btn" onclick="prevPage()">← Prev</button>
+          <button class="nav-btn" onclick="nextPage()">Next →</button>
+        </div>
+      </div>
+      <div class="translation-overlay" id="trans-11">
+        <div class="translation-header">
+          <div><div class="translation-header-left">🌐 English Translation</div><div class="translation-header-subtitle">Act 1 Scene 7 · Pages 34–35</div></div>
+          <button class="back-btn" onclick="hideTranslation(11)">◂ Back to Text</button>
+        </div>
+        <div class="translation-body">
+          <div class="translation-scene-title">Act 1 Scene 7 – Pang's Tailor Shop</div>
+          <div class="translation-note">Nines brings cloth to Pang. Henry arrives with exciting minstrel costume materials. Then a devastating letter arrives for Galiema.</div>
+          <div class="trans-block"><div class="trans-speaker">Nines:</div><div class="trans-original">Ou Pang! Nou wat dink djy van die lap?</div><div class="trans-english">Old Pang! Now what do you think of the cloth/fabric?</div></div>
+          <div class="trans-block"><div class="trans-speaker">Pang:</div><div class="trans-original">Die lap issie eintlik Harris tweed 'ie. Verstaan djy?</div><div class="trans-english">The fabric is not actually Harris tweed. Do you understand?</div></div>
+          <div class="trans-block"><div class="trans-speaker">Nines:</div><div class="trans-original">Ag, ou Pang, djy wiet mos wat die Jorre sê: Never mind the quality, feel de width.</div><div class="trans-english">Ag, old Pang, you know what the Jews say: Never mind the quality, feel the width. [A humorous phrase meaning: don't worry about quality, just look at how big it is]</div></div>
+          <div class="trans-block"><div class="trans-speaker">Nines:</div><div class="trans-original">Temerity? Ou Pang, moenie hie' kô vissies spieg 'ie.</div><div class="trans-english">Temerity? Old Pang, don't come here trying to be posh/show off with big words.</div></div>
+          <div class="trans-block"><div class="trans-speaker">Henry:</div><div class="trans-original">Ouens, kô kyk hiesa.</div><div class="trans-english">Guys/fellas, come look here.</div></div>
+          <div class="trans-block"><div class="trans-speaker">Nines:</div><div class="trans-original">Isja, Uncle Henry! Die colours is kwaai!</div><div class="trans-english">Indeed, Uncle Henry! The colours are beautiful/the best!</div></div>
+          <div class="trans-block"><div class="trans-speaker">Henry:</div><div class="trans-original">Ou Pang, hoe lyk jy die satin?</div><div class="trans-english">Old Pang, what do you think of this satin?</div></div>
+          <div class="trans-block"><div class="trans-speaker">Pang:</div><div class="trans-original">But not a word to anyone, nè.</div><div class="trans-english">But not a word to anyone, okay. ["nè" is a tag question seeking agreement]</div></div>
+          <div class="trans-block"><div class="trans-speaker">Henry:</div><div class="trans-original">Fits like a stocking on a lady's leg, ek sê.</div><div class="trans-english">Fits like a stocking on a lady's leg, I say. [Perfect fit]</div></div>
+          <div class="trans-block"><div class="trans-speaker">Hester:</div><div class="trans-original">Jy lossie ladies, hô. En watse klopse nonsens is hie' aanie gan, huh?</div><div class="trans-english">You leave the ladies alone, hey. And what kind of minstrel nonsense is going on here, huh?</div></div>
+          <div class="trans-block"><div class="trans-speaker">Henry:</div><div class="trans-original">Dissie my gê nie.</div><div class="trans-english">It's not my outfit/costume. [Denying the tailcoat belongs to him]</div></div>
+          <div class="trans-block"><div class="trans-speaker">Hester:</div><div class="trans-original">het ek jou nou somma onnerstebo geskop. Pang, read there for us, kanala.</div><div class="trans-english">I would have kicked you upside down. Pang, read that for us, please.</div></div>
+          <div class="trans-block"><div class="trans-speaker">Hester:</div><div class="trans-original">Moenie jou hie kô stupid hou nie, hô.</div><div class="trans-english">Don't come and play stupid here, hey.</div></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ===== PAGE 12: Scene 7 cont. + Scene 8 start, p.36-37 ===== -->
+    <div class="book-page" id="page-12">
+      <div class="page-header">
+        <div class="page-header-left">District Six and Other Plays</div>
+        <div class="page-number-display">36 – 37</div>
+        <div class="page-header-right">District Six – the play</div>
+      </div>
+      <div class="page-body">
+        <div class="dialogue-block"><div class="speaker">Hester:</div><div class="dialogue-text">When?</div></div>
+        <div class="dialogue-block"><div class="speaker">Pang:</div><div class="dialogue-text">The end of May.</div></div>
+        <div class="stage-direction">They stand in shocked silence. BROERTJIE runs in and tosses a camera to NINES who quickly hides it behind his back. Then SANDY rushes in.</div>
+        <div class="dialogue-block"><div class="speaker">Nines:</div><div class="dialogue-text">Looks like the whiteys are moving in already.</div></div>
+        <div class="dialogue-block"><div class="speaker">Sandy:</div><div class="dialogue-text">Where's that boy?</div></div>
+        <div class="dialogue-block"><div class="speaker">Nines:</div><div class="dialogue-text">Mêrrem looking for someone to work inna garden?</div></div>
+        <div class="dialogue-block"><div class="speaker">Sandy:</div><div class="dialogue-text">That boy that ran in here a second ago.</div></div>
+        <div class="dialogue-block"><div class="speaker">Nines:</div><div class="dialogue-text">Which boy, Mêrrem? <em>(Pointing to himself)</em> This boy? Or … <em>(Pointing to PANG)</em> … this boy?</div></div>
+        <div class="dialogue-block"><div class="speaker">Sandy:</div><div class="dialogue-text">No, I mean the little … the little … um … I think the word is skollie?</div></div>
+        <div class="dialogue-block"><div class="speaker">Nines:</div><div class="dialogue-text">Skollie! Are you calling me a skollie, you wit bitch?</div></div>
+        <div class="dialogue-block"><div class="speaker">Hester:</div><div class="dialogue-text">Nines! <em>(HESTER turns to SANDY.)</em> What is the problem, lady?</div></div>
+        <div class="dialogue-block"><div class="speaker">Sandy:</div><div class="dialogue-text">Look, I don't want to make any trouble. But I need that camera back.</div></div>
+        <div class="dialogue-block"><div class="speaker">Hester:</div><div class="dialogue-text">A camera? For what is this camera?</div></div>
+        <div class="dialogue-block"><div class="speaker">Sandy:</div><div class="dialogue-text">To take pictures.</div></div>
+        <div class="dialogue-block"><div class="speaker">Hester:</div><div class="dialogue-text">But why? Why take pictures of District Six?</div></div>
+        <div class="dialogue-block"><div class="speaker">Sandy:</div><div class="dialogue-text">So that I won't forget where I've been and what I've seen.</div></div>
+        <div class="dialogue-block"><div class="speaker">Hester:</div><div class="dialogue-text">And what have you seen?</div></div>
+        <div class="dialogue-block"><div class="speaker">Sandy:</div><div class="dialogue-text">People. Interesting buildings.</div></div>
+        <div class="dialogue-block"><div class="speaker">Hester:</div><div class="dialogue-text">Oh? You find the buildings interesting? The Government says that they are old, and dilapidated,<sup>46</sup> nogal. They don't think they're interesting.</div></div>
+        <div class="dialogue-block"><div class="speaker">Nines:</div><div class="dialogue-text">She could be a spy.</div></div>
+        <div class="dialogue-block"><div class="speaker">Hester:</div><div class="dialogue-text">They say that this district is a crime-ridden slum.</div></div>
+        <div class="stage-direction" style="margin-top:20px;">— continued: Act 1 Scene 8 —</div>
+        <div class="scene-heading" style="margin-top:20px;">Act 1 Scene 8</div>
+        <div class="stage-direction">Interior of StarTone Records. GOLDMAN is sitting at his desk. CASSIEM enters.</div>
+        <div class="dialogue-block"><div class="speaker">Goldman:</div><div class="dialogue-text">Ah, just the man I wanted to see.</div></div>
+        <div class="dialogue-block"><div class="speaker">Cassiem:</div><div class="dialogue-text">Evening, Mister Goldman.</div></div>
+        <div class="dialogue-block"><div class="speaker">Goldman:</div><div class="dialogue-text">Come. We need to talk. Sit my boy, sit. Where's Mary?</div></div>
+        <div class="dialogue-block"><div class="speaker">Cassiem:</div><div class="dialogue-text">She's at the club, Mister Goldman. Getting ready. I can quickly go call her.</div></div>
+        <div class="dialogue-block"><div class="speaker">Goldman:</div><div class="dialogue-text">No. Sit, sit. I want to talk to you. To you. Alone.</div></div>
+        <div class="dialogue-block"><div class="speaker">Cassiem:</div><div class="dialogue-text">But isn't this about the …?</div></div>
+        <div class="dialogue-block"><div class="speaker">Goldman:</div><div class="dialogue-text">The record? Yes, yes, but not with … um … you see, Cassiem, in this business you have to be … um … how do they say …?</div></div>
+        <div class="footnotes-section">
+          <div class="footnote-item"><strong>46. dilapidated:</strong> tumble-down; neglected and falling to pieces</div>
+          <div class="footnote-item"><strong>47. James Bond stuk:</strong> a James Bond film</div>
+        </div>
+      </div>
+      <div class="page-footer">
+        <button class="translate-btn" onclick="showTranslation(12)"><span class="btn-icon">🌐</span> View English Translation</button>
+        <div class="page-nav">
+          <button class="nav-btn" onclick="prevPage()">← Prev</button>
+          <button class="nav-btn" onclick="nextPage()">Next →</button>
+        </div>
+      </div>
+      <div class="translation-overlay" id="trans-12">
+        <div class="translation-header">
+          <div><div class="translation-header-left">🌐 English Translation</div><div class="translation-header-subtitle">Act 1 Scene 7–8 · Pages 36–37</div></div>
+          <button class="back-btn" onclick="hideTranslation(12)">◂ Back to Text</button>
+        </div>
+        <div class="translation-body">
+          <div class="translation-scene-title">Scene 7 End / Scene 8 Opening</div>
+          <div class="translation-note">Galiema receives an eviction letter. Sandy confronts Nines about her stolen camera. Then Goldman summons Cassiem privately.</div>
+          <div class="trans-block"><div class="trans-speaker">Nines:</div><div class="trans-original">Mêrrem looking for someone to work inna garden?</div><div class="trans-english">Is Ma'am looking for someone to work in the garden? [Nines sarcastically assumes she wants a servant]</div></div>
+          <div class="trans-block"><div class="trans-speaker">Hester:</div><div class="trans-english">Oh? You find the buildings interesting? The Government says that they are old, and dilapidated [tumble-down; neglected and falling to pieces], nogal [of all things]. They don't think they're interesting. [Hester highlights the contrast between Sandy's appreciation and the Government's dismissive view of District Six]</div></div>
+          <div class="trans-block"><div class="trans-speaker">Goldman:</div><div class="trans-english">No. Sit, sit. I want to talk to you. To you. Alone. [The repetition signals something significant and secret is about to be revealed – Goldman intends to offer Cassiem a solo contract without Mary]</div></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ===== PAGE 13: Scene 8 cont. + Scene 9 start, p.38-39 ===== -->
+    <div class="book-page" id="page-13">
+      <div class="page-header">
+        <div class="page-header-left">District Six and Other Plays</div>
+        <div class="page-number-display">38 – 39</div>
+        <div class="page-header-right">District Six – the play</div>
+      </div>
+      <div class="page-body">
+        <div class="dialogue-block"><div class="speaker">Cassiem:</div><div class="dialogue-text">With it.</div></div>
+        <div class="dialogue-block"><div class="speaker">Goldman:</div><div class="dialogue-text">Ja, with it. And what you and Mary are doing is … look … it's lovely. It's a good song. And you are two beautiful young people, but … the thing is … they tell me, duets are no longer fashionable.</div></div>
+        <div class="dialogue-block"><div class="speaker">Cassiem:</div><div class="dialogue-text">That's what I told Mary.</div></div>
+        <div class="dialogue-block"><div class="speaker">Goldman:</div><div class="dialogue-text">What I need and what StarTone Records is looking for is … is an attractive young male singer.</div></div>
+        <div class="dialogue-block"><div class="speaker">Cassiem:</div><div class="dialogue-text">You talking about me, Mister G?</div></div>
+        <div class="dialogue-block"><div class="speaker">Goldman:</div><div class="dialogue-text">Of course I'm talking about you. You've got the voice and the looks. And let's face it. It's the young girls that buy the records.</div></div>
+        <div class="dialogue-block"><div class="speaker">Cassiem:</div><div class="dialogue-text">But what about Mary?</div></div>
+        <div class="dialogue-block"><div class="speaker">Goldman:</div><div class="dialogue-text">She could still help you, I think. But in the background. With the music and so on.</div></div>
+        <div class="dialogue-block"><div class="speaker">Cassiem:</div><div class="dialogue-text">I just want to make records, Mister Goldman.</div></div>
+        <div class="dialogue-block"><div class="speaker">Goldman:</div><div class="dialogue-text">So do I, my boy, so do I. Will you talk to Mary? <em>(CASSIEM nods.)</em> She'll understand. <em>(He puts the contract in front of CASSIEM.)</em> Now before you sign, Cassiem, I want to be sure that you understand what is written there in the contract.</div></div>
+        <div class="dialogue-block"><div class="speaker">Cassiem:</div><div class="dialogue-text">I can read, Mister Goldman.</div></div>
+        <div class="dialogue-block"><div class="speaker">Goldman:</div><div class="dialogue-text">That's good.</div></div>
+        <div class="dialogue-block"><div class="speaker">Cassiem:</div><div class="dialogue-text">I'm not a stupid skollie, you know.</div></div>
+        <div class="dialogue-block"><div class="speaker">Goldman:</div><div class="dialogue-text">Nobody said you were. But it is a legal contract and when you sign it, well, then it's signed and you can't just walk away if it doesn't suit you. <em>(CASSIEM signs the document and hands it back as SANDY comes in.)</em> Sandy, what's wrong? You look upset.</div></div>
+        <div class="dialogue-block"><div class="speaker">Sandy:</div><div class="dialogue-text">Well, it's nothing really. My camera was stolen. One of these street urchins. But it's back as you can see and … oh, let's not talk about it.</div></div>
+        <div class="dialogue-block"><div class="speaker">Goldman:</div><div class="dialogue-text">But you're all right?</div></div>
+        <div class="stage-direction" style="margin-top:20px;">— continued: Act 1 Scene 9 —</div>
+        <div class="dialogue-block" style="margin-top:16px;"><div class="speaker">Sandy:</div><div class="dialogue-text">Fine, fine. Nothing happened, thank God. Just a little confrontation with some of the locals. But they gave me back the camera. They thought I was a spy for the Government, can you believe?</div></div>
+        <div class="dialogue-block"><div class="speaker">Cassiem:</div><div class="dialogue-text">Why they think that?</div></div>
+        <div class="dialogue-block"><div class="speaker">Sandy:</div><div class="dialogue-text">Oh, because I was photographing the buildings and things.</div></div>
+        <div class="dialogue-block"><div class="speaker">Cassiem:</div><div class="dialogue-text">Photos of this place? For the portfolio?</div></div>
+        <div class="dialogue-block"><div class="speaker">Sandy:</div><div class="dialogue-text">My portfolio. I need to hand in a project when I return.</div></div>
+        <div class="dialogue-block"><div class="speaker">Goldman:</div><div class="dialogue-text">Look, maybe it's not a good idea for you to wander around on your own.</div></div>
+        <div class="dialogue-block"><div class="speaker">Sandy:</div><div class="dialogue-text">But, Granddad. I don't want to sit here cooped up in the office all day.</div></div>
+        <div class="dialogue-block"><div class="speaker">Goldman:</div><div class="dialogue-text">But, darling, you can't go out on your own. You see what happens.</div></div>
+        <div class="dialogue-block"><div class="speaker">Cassiem:</div><div class="dialogue-text">Mister Goldman, I think I can help. <em>(To SANDY)</em> I can show you around if you want. <em>(To GOLDMAN)</em> She'd be safe with me.</div></div>
+        <div class="dialogue-block"><div class="speaker">Sandy:</div><div class="dialogue-text">Oh, that's so kind of you. You'd be absolutely perfect. Don't you think, Granddad?</div></div>
+        <div class="dialogue-block"><div class="speaker">Goldman:</div><div class="dialogue-text"><em>(Shrugs)</em> It's up to you.</div></div>
+        <div class="dialogue-block"><div class="speaker">Sandy:</div><div class="dialogue-text">Would you be free now? I'd love to get some shots before the light fades.</div></div>
+
+        <div class="scene-heading" style="margin-top:28px;">Act 1 Scene 9</div>
+        <div class="stage-direction">DAMAKA enters. NINES is sitting on the Seven Steps scratching something on one of the steps with his knife.</div>
+        <div class="dialogue-block"><div class="speaker">Damaka:</div><div class="dialogue-text">What are you doing there, Nines?</div></div>
+        <div class="dialogue-block"><div class="speaker">Nines:</div><div class="dialogue-text">Ag, nothing.</div></div>
+        <div class="dialogue-block"><div class="speaker">Damaka:</div><div class="dialogue-text">But whose name are you scratching there on the steps?</div></div>
+        <div class="dialogue-block"><div class="speaker">Nines:</div><div class="dialogue-text">Who said I'm scratching a name?</div></div>
+      </div>
+      <div class="page-footer">
+        <button class="translate-btn" onclick="showTranslation(13)"><span class="btn-icon">🌐</span> View English Translation</button>
+        <div class="page-nav">
+          <button class="nav-btn" onclick="prevPage()">← Prev</button>
+          <button class="nav-btn" onclick="nextPage()">Next →</button>
+        </div>
+      </div>
+      <div class="translation-overlay" id="trans-13">
+        <div class="translation-header">
+          <div><div class="translation-header-left">🌐 English Translation</div><div class="translation-header-subtitle">Act 1 Scenes 8–9 · Pages 38–39</div></div>
+          <button class="back-btn" onclick="hideTranslation(13)">◂ Back to Text</button>
+        </div>
+        <div class="translation-body">
+          <div class="translation-scene-title">Scene 8 – The Contract / Scene 9 Opening</div>
+          <div class="translation-note">Scene 8 is entirely in English. Goldman offers Cassiem a solo contract, cutting Mary out. Scene 9 begins with Damaka catching Nines scratching a name on the Seven Steps.</div>
+          <div class="trans-block"><div class="trans-speaker">Cassiem:</div><div class="trans-english">I'm not a stupid skollie [gang member/thug], you know. [Cassiem asserts his intelligence and dignity, pushing back against Goldman's possible condescension]</div></div>
+          <div class="trans-block"><div class="trans-speaker">Goldman:</div><div class="trans-english">…when you sign it, well, then it's signed and you can't just walk away if it doesn't suit you. [This is Goldman warning Cassiem that the contract is binding – foreshadowing the consequences Cassiem will face]</div></div>
+          <div class="trans-block"><div class="trans-speaker">Cassiem:</div><div class="trans-english">Mister Goldman, I think I can help. I can show you around if you want. She'd be safe with me. [Cassiem volunteers to be Sandy's guide – beginning the relationship that will damage his partnership with Mary]</div></div>
+          <div style="margin-top:20px; padding-top:16px; border-top:1px solid var(--rule-line);">
+            <div class="translation-scene-title">Act 1 Scene 9 – Opening</div>
+            <div class="trans-stage">DAMAKA enters. NINES is sitting on the Seven Steps, scratching something on one of the steps with his knife – likely a girl's name, revealing a softer, hidden side of Nines.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ===== PAGE 14: Scene 9 cont., p.40-41 ===== -->
+    <div class="book-page" id="page-14">
+      <div class="page-header">
+        <div class="page-header-left">District Six and Other Plays</div>
+        <div class="page-number-display">40 – 41</div>
+        <div class="page-header-right">District Six – the play</div>
+      </div>
+      <div class="page-body">
+        <div class="dialogue-block"><div class="speaker">Damaka:</div><div class="dialogue-text">You can't fool me, Nines … am I right?</div></div>
+        <div class="dialogue-block"><div class="speaker">Nines:</div><div class="dialogue-text">Mmm. Maybe.</div></div>
+        <div class="dialogue-block"><div class="speaker">Damaka:</div><div class="dialogue-text">Looks like … a heart? And a name. Are you going to tell me or must I tell you?</div></div>
+        <div class="dialogue-block"><div class="speaker">Nines:</div><div class="dialogue-text">You tell me.</div></div>
+        <div class="dialogue-block"><div class="speaker">Damaka:</div><div class="dialogue-text">It starts with an M and it rhymes with …</div></div>
+        <div class="dialogue-block"><div class="speaker">Nines:</div><div class="dialogue-text">Okay, okay stop net da'. Djy's nogal vol tricks, nè. <em>(He lights up a cigarette.)</em> Ja, Damaka, you mos a clever man … dis ting wit' the Group and Galiema's letter. Ek mien, ek dink 'is nogal 'n klomp kak. But why would the whiteys want to move in here, to District Six?</div></div>
+        <div class="dialogue-block"><div class="speaker">Damaka:</div><div class="dialogue-text">They don't want to move in. They just wanna move us. Out.</div></div>
+        <div class="dialogue-block"><div class="speaker">Nines:</div><div class="dialogue-text">Move us out? All of us? But there's mos thousands of us living here.</div></div>
+        <div class="dialogue-block"><div class="speaker">Damaka:</div><div class="dialogue-text">Do you know what happened to the people in Tramway Road, Sea Point?</div></div>
+        <div class="dialogue-block"><div class="speaker">Nines:</div><div class="dialogue-text">Naai.</div></div>
+        <div class="dialogue-block"><div class="speaker">Damaka:</div><div class="dialogue-text">They forced them to leave. All the coloured people. And the blacks? In Sophiatown? The same thing happened to them. It's going on all over the country. So mark my words, they'll do it to us.</div></div>
+        <div class="dialogue-block"><div class="speaker">Nines:</div><div class="dialogue-text">Djy mien … but why? We've then lived here all the years.</div></div>
+        <div class="dialogue-block"><div class="speaker">Damaka:</div><div class="dialogue-text">Greed, my boy. They want it all for themselves. Fear and greed is a powerful combination.</div></div>
+        <div class="stage-direction">CASSIEM and SANDY come down the Seven Steps.</div>
+        <div class="dialogue-block"><div class="speaker">Cassiem:</div><div class="dialogue-text">Nines. Damaka.</div></div>
+        <div class="stage-direction">They carry on up the street.</div>
+        <div class="dialogue-block"><div class="speaker">Damaka:</div><div class="dialogue-text">Who was that with him?</div></div>
+        <div class="dialogue-block"><div class="speaker">Nines:</div><div class="dialogue-text">Daai wit cherry. <em>(Singing)</em> De one wit' de waggly tail.<sup>48</sup></div></div>
+        <div class="stage-direction" style="margin-top:20px;">— continued page 41 —</div>
+        <div class="dialogue-block" style="margin-top:16px;"><div class="speaker">Damaka:</div><div class="dialogue-text">With the camera?</div></div>
+        <div class="dialogue-block"><div class="speaker">Nines:</div><div class="dialogue-text">So where are they gonna put all the thousands of people?</div></div>
+        <div class="dialogue-block"><div class="speaker">Damaka:</div><div class="dialogue-text">Far away. There on the Cape Flats.<sup>49</sup></div></div>
+        <div class="dialogue-block"><div class="speaker">Nines:</div><div class="dialogue-text">Not me, ou pêllie. Ek gattie move 'ie. Not a damn. I'm gonna stay just here where I am.</div></div>
+        <div class="dialogue-block"><div class="speaker">Damaka:</div><div class="dialogue-text">That's exactly how I feel. But unless we stand together, they'll move us one by one.</div></div>
+        <div class="stage-direction">MARY arrives. She seems agitated. She knocks at CASSIEM'S door.</div>
+        <div class="dialogue-block"><div class="speaker">Nines:</div><div class="dialogue-text">Hello, Mary. Vergiet van hom, man. Kô sit hie' by my.</div></div>
+        <div class="dialogue-block"><div class="speaker">Mary:</div><div class="dialogue-text">Damaka, I'm looking for Cassiem.</div></div>
+        <div class="dialogue-block"><div class="speaker">Nines:</div><div class="dialogue-text">Vergiet van hom, man. Cassiem's got other things on his mind.</div></div>
+        <div class="dialogue-block"><div class="speaker">Mary:</div><div class="dialogue-text">Oh! And what exactly does that mean?</div></div>
+        <div class="dialogue-block"><div class="speaker">Nines:</div><div class="dialogue-text">Naai. Handihaas.<sup>50</sup> But maybe you must try knocking there by ou Goldman.</div></div>
+        <div class="dialogue-block"><div class="speaker">Damaka:</div><div class="dialogue-text">Nines!</div></div>
+        <div class="dialogue-block"><div class="speaker">Nines:</div><div class="dialogue-text">His granddaughter might know where he is, nè Damaka.</div></div>
+        <div class="dialogue-block"><div class="speaker">Mary:</div><div class="dialogue-text">Who? That one with the camera? Is he with her? Damaka?</div></div>
+        <div class="dialogue-block"><div class="speaker">Damaka:</div><div class="dialogue-text">Well, um … I'm not sure Mary, but … um …</div></div>
+        <div class="dialogue-block"><div class="speaker">Nines:</div><div class="dialogue-text">They came past here. The goose<sup>51</sup> had a camera.</div></div>
+        <div class="dialogue-block"><div class="speaker">Damaka:</div><div class="dialogue-text">Ag, I think he was just showing her around.</div></div>
+        <div class="dialogue-block"><div class="speaker">Mary:</div><div class="dialogue-text">He never told me.</div></div>
+        <div class="dialogue-block"><div class="speaker">Damaka:</div><div class="dialogue-text">Ag, it's probably nothing, Mary. Maybe she just wants to take pictures or something.</div></div>
+        <div class="stage-direction">MARY turns to go.</div>
+        <div class="dialogue-block"><div class="speaker">Nines:</div><div class="dialogue-text">Mmm, or sumting.</div></div>
+        <div class="footnotes-section">
+          <div class="footnote-item"><strong>48. de one wit' de waggly tail:</strong> from a song titled "How much is that doggy in the window?" – Nines is mocking Sandy</div>
+          <div class="footnote-item"><strong>49. Cape Flats:</strong> area outside of Cape Town to which many inhabitants of District Six and other so-called coloured communities were forcibly moved</div>
+          <div class="footnote-item"><strong>50. handihaas:</strong> I know nothing</div>
+          <div class="footnote-item"><strong>51. goose:</strong> woman or girl</div>
+        </div>
+      </div>
+      <div class="page-footer">
+        <button class="translate-btn" onclick="showTranslation(14)"><span class="btn-icon">🌐</span> View English Translation</button>
+        <div class="page-nav">
+          <button class="nav-btn" onclick="prevPage()">← Prev</button>
+          <button class="nav-btn" onclick="nextPage()">Next →</button>
+        </div>
+      </div>
+      <div class="translation-overlay" id="trans-14">
+        <div class="translation-header">
+          <div><div class="translation-header-left">🌐 English Translation</div><div class="translation-header-subtitle">Act 1 Scene 9 · Pages 40–41</div></div>
+          <button class="back-btn" onclick="hideTranslation(14)">◂ Back to Text</button>
+        </div>
+        <div class="translation-body">
+          <div class="translation-scene-title">Act 1 Scene 9 – Damaka's Warning</div>
+          <div class="trans-block"><div class="trans-speaker">Nines:</div><div class="trans-original">Okay, okay stop net da'. Djy's nogal vol tricks, nè.</div><div class="trans-english">Okay, okay just stop there. You're actually quite full of tricks, aren't you.</div></div>
+          <div class="trans-block"><div class="trans-speaker">Nines:</div><div class="trans-original">Ek mien, ek dink 'is nogal 'n klomp kak.</div><div class="trans-english">I mean, I think it's quite a lot of nonsense/rubbish.</div></div>
+          <div class="trans-block"><div class="trans-speaker">Nines:</div><div class="trans-original">Daai wit cherry. (Singing) De one wit' de waggly tail.</div><div class="trans-english">That white girl [dismissive term]. (Singing) The one with the waggly tail. [A mocking reference to Sandy using a children's song]</div></div>
+          <div class="trans-block"><div class="trans-speaker">Nines:</div><div class="trans-original">Not me, ou pêllie. Ek gattie move 'ie. Not a damn.</div><div class="trans-english">Not me, old pal/friend. I am not going to move. Not a damn [chance].</div></div>
+          <div class="trans-block"><div class="trans-speaker">Nines:</div><div class="trans-original">Hello, Mary. Vergiet van hom, man. Kô sit hie' by my.</div><div class="trans-english">Hello, Mary. Forget about him, man. Come sit here by me.</div></div>
+          <div class="trans-block"><div class="trans-speaker">Nines:</div><div class="trans-original">Vergiet van hom, man. Cassiem's got other things on his mind.</div><div class="trans-english">Forget about him, man. Cassiem's got other things on his mind.</div></div>
+          <div class="trans-block"><div class="trans-speaker">Nines:</div><div class="trans-original">Naai. Handihaas.</div><div class="trans-english">No. I know nothing. [Feigning ignorance]</div></div>
+          <div class="trans-block"><div class="trans-speaker">Nines:</div><div class="trans-original">Mmm, or sumting.</div><div class="trans-english">Mmm, or something. [Said with a knowing, suggestive tone – implying Cassiem and Sandy may be more than just touring together]</div></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ===== PAGE 15: Scene 9 end + Scene 10 start, p.42 ===== -->
+    <div class="book-page" id="page-15">
+      <div class="page-header">
+        <div class="page-header-left">District Six and Other Plays</div>
+        <div class="page-number-display">42</div>
+        <div class="page-header-right">District Six – the play</div>
+      </div>
+      <div class="page-body">
+        <div class="stage-direction">MARY leaves.</div>
+        <div class="dialogue-block"><div class="speaker">Nines:</div><div class="dialogue-text">But things can mos develop in a dark room.</div></div>
+        <div class="dialogue-block"><div class="speaker">Damaka:</div><div class="dialogue-text">Ai, Nines! Sometimes I don't understand you.</div></div>
+        <div class="stage-direction">NINES walks away.</div>
+        <div class="dialogue-block"><div class="speaker">Nines:</div><div class="dialogue-text">Ja, Damaka. Sometimes even I don't understand me. Dis heart I scratched here onna steps. Don' tell Mary, nè.</div></div>
+
+        <div class="scene-heading" style="margin-top:32px;">Act 1 Scene 10</div>
+        <div class="stage-direction">SANDY and CASSIEM enter SOPHIA'S Blue Moon Jazz Club.</div>
+        <div class="dialogue-block"><div class="speaker">Sophia:</div><div class="dialogue-text">Ah, Cassiem. And who's this lovely lady?</div></div>
+        <div class="dialogue-block"><div class="speaker">Cassiem:</div><div class="dialogue-text">Sophia. Sandy Goldman.</div></div>
+        <div class="dialogue-block"><div class="speaker">Sophia:</div><div class="dialogue-text">Ah! Mister Goldman's granddaughter. What a pleasure. Welcome, welcome to my humble establishment. Now what can I get you? Something to eat? Something to drink?</div></div>
+        <div class="dialogue-block"><div class="speaker">Sandy:</div><div class="dialogue-text">Do you serve champagne?</div></div>
+        <div class="dialogue-block"><div class="speaker">Sophia:</div><div class="dialogue-text">Only the best.</div></div>
+        <div class="dialogue-block"><div class="speaker">Sandy:</div><div class="dialogue-text">I'd like a glass of French, if you have.</div></div>
+        <div class="dialogue-block"><div class="speaker">Sophia:</div><div class="dialogue-text">Voulais parlez Français. Espanjol rooke die zol?<sup>52</sup> French, German, Italian. You can travel the world here at Sophia's Blue Moon. And for you, Mister Cassiem?</div></div>
+        <div class="dialogue-block"><div class="speaker">Cassiem:</div><div class="dialogue-text">Just a little Coca-Cola, thank you.</div></div>
+        <div class="dialogue-block"><div class="speaker">Sophia:</div><div class="dialogue-text">Archie! Bring 'n Coke virrie die meneer. En gooi 'n bietjie soda water daar innie witwyn virrie kind. En 'n bietjie droë daaltjies<sup>53</sup> virrie tafel. Dan lykkit nie so kaal 'ie.</div></div>
+        <div class="dialogue-block"><div class="speaker">Sandy:</div><div class="dialogue-text">Oh, come on. Don't be such a wet blanket. Let me buy you a drink.</div></div>
+        <div class="dialogue-block"><div class="speaker">Cassiem:</div><div class="dialogue-text">Look I'd like to, but … um …</div></div>
+        <div class="footnotes-section">
+          <div class="footnote-item"><strong>52. Voulais parlez Français. Espanjol rooke die zol:</strong> nonsense French- and Italian-sounding words</div>
+          <div class="footnote-item"><strong>53. daaltjies:</strong> fried curry dough; Muslim delicacy made with various spices such as coriander and chilies</div>
+          <div class="footnote-item"><strong>54. kosher:</strong> following Jewish law or practices</div>
+          <div class="footnote-item"><strong>55. halaal:</strong> following Muslim law or practices</div>
+          <div class="footnote-item"><strong>56. fezzes:</strong> brimless hats, usually red with a tassel traditionally worn by Muslim men</div>
+        </div>
+      </div>
+      <div class="page-footer">
+        <button class="translate-btn" onclick="showTranslation(15)"><span class="btn-icon">🌐</span> View English Translation</button>
+        <div class="page-nav">
+          <button class="nav-btn" onclick="prevPage()">← Prev</button>
+          <button class="nav-btn" onclick="nextPage()">Next →</button>
+        </div>
+      </div>
+      <div class="translation-overlay" id="trans-15">
+        <div class="translation-header">
+          <div><div class="translation-header-left">🌐 English Translation</div><div class="translation-header-subtitle">Act 1 Scenes 9–10 · Page 42</div></div>
+          <button class="back-btn" onclick="hideTranslation(15)">◂ Back to Text</button>
+        </div>
+        <div class="translation-body">
+          <div class="translation-scene-title">Scene 9 End / Scene 10 Opening – Blue Moon Jazz Club</div>
+          <div class="trans-block"><div class="trans-speaker">Nines:</div><div class="trans-original">But things can mos develop in a dark room.</div><div class="trans-english">But things can, after all, develop in a dark room. [A double meaning: photos develop in a darkroom, but also relationships "develop" in private/dark places – hinting that Cassiem and Sandy's relationship may grow]</div></div>
+          <div class="trans-block"><div class="trans-speaker">Nines:</div><div class="trans-original">Ja, Damaka. Sometimes even I don't understand me. Dis heart I scratched here onna steps. Don' tell Mary, nè.</div><div class="trans-english">Yes, Damaka. Sometimes even I don't understand myself. This heart I scratched here on the steps [was for Mary]. Don't tell Mary, okay. [Reveals that Nines's heart is scratched with Mary's name – he has genuine feelings for her despite his tough exterior]</div></div>
+          <div class="trans-block"><div class="trans-speaker">Sophia:</div><div class="trans-original">Voulais parlez Français. Espanjol rooke die zol?</div><div class="trans-english">These are nonsense words mimicking French and Spanish – Sophia is humorously pretending to be multilingual to impress Sandy. "Rooke die zol" is Cape slang meaning "smoke a joint."</div></div>
+          <div class="trans-block"><div class="trans-speaker">Sophia:</div><div class="trans-original">Archie! Bring 'n Coke virrie die meneer. En gooi 'n bietjie soda water daar innie witwyn virrie kind. En 'n bietjie droë daaltjies virrie tafel. Dan lykkit nie so kaal 'ie.</div><div class="trans-english">Archie! Bring a Coke for the gentleman. And add a little soda water in the white wine for the young lady. And a few dry daaltjies [fried curry pastries] for the table. Then it won't look so bare/empty.</div></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ===== PAGE 16: Scene 10 cont., p.43 ===== -->
+    <div class="book-page" id="page-16">
+      <div class="page-header">
+        <div class="page-header-left">District Six and Other Plays</div>
+        <div class="page-number-display">43</div>
+        <div class="page-header-right">District Six – the play</div>
+      </div>
+      <div class="page-body">
+        <div class="dialogue-block"><div class="speaker">Sandy:</div><div class="dialogue-text">But what?</div></div>
+        <div class="dialogue-block"><div class="speaker">Cassiem:</div><div class="dialogue-text">People might see me. Having a drink isn't … how do you say … kosher,<sup>54</sup> you know.</div></div>
+        <div class="dialogue-block"><div class="speaker">Sandy:</div><div class="dialogue-text">Well, I suppose I'm not that halaal<sup>55</sup> either.</div></div>
+        <div class="dialogue-block"><div class="speaker">Cassiem:</div><div class="dialogue-text">Ja … we better be going … Mister Goldman will be wondering …</div></div>
+        <div class="dialogue-block"><div class="speaker">Sandy:</div><div class="dialogue-text">Please, don't worry about him. He's actually quite open-minded once you get to know him. <em>(The drinks arrive. SANDY lights up a cigarette.)</em> Here's to your first record. May you have many hits.</div></div>
+        <div class="dialogue-block"><div class="speaker">Cassiem:</div><div class="dialogue-text">Thanks.</div></div>
+        <div class="dialogue-block"><div class="speaker">Sandy:</div><div class="dialogue-text">So, tell me something about yourself.</div></div>
+        <div class="dialogue-block"><div class="speaker">Cassiem:</div><div class="dialogue-text">Ag, what's there to tell?</div></div>
+        <div class="dialogue-block"><div class="speaker">Sandy:</div><div class="dialogue-text">Look, you better get used to this. The newspapers will be asking these questions soon.</div></div>
+        <div class="dialogue-block"><div class="speaker">Cassiem:</div><div class="dialogue-text">Like what?</div></div>
+        <div class="dialogue-block"><div class="speaker">Sandy:</div><div class="dialogue-text">Like … when did you start singing?</div></div>
+        <div class="dialogue-block"><div class="speaker">Cassiem:</div><div class="dialogue-text">Me? Ag, long ago when I was a kid. My father had a choir you know, and um … I used to sit at their feet and listen to the voices. Beautiful voices. And the guitars and the mandolins.</div></div>
+        <div class="dialogue-block"><div class="speaker">Sophia:</div><div class="dialogue-text">And men, men and more men with big red … fezzes.<sup>56</sup></div></div>
+        <div class="dialogue-block"><div class="speaker">Sandy:</div><div class="dialogue-text">So do you still sing with them?</div></div>
+        <div class="dialogue-block"><div class="speaker">Cassiem:</div><div class="dialogue-text">Yes, I do, but that's not what I wanted.</div></div>
+        <div class="dialogue-block"><div class="speaker">Sandy:</div><div class="dialogue-text">What did you want?</div></div>
+        <div class="dialogue-block"><div class="speaker">Cassiem:</div><div class="dialogue-text">This. Who woulda thought I'd end up with my own recording contract, nogal.</div></div>
+      </div>
+      <div class="page-footer">
+        <button class="translate-btn" onclick="showTranslation(16)"><span class="btn-icon">🌐</span> View English Translation</button>
+        <div class="page-nav">
+          <button class="nav-btn" onclick="prevPage()">← Prev</button>
+          <button class="nav-btn" onclick="nextPage()">Next →</button>
+        </div>
+      </div>
+      <div class="translation-overlay" id="trans-16">
+        <div class="translation-header">
+          <div><div class="translation-header-left">🌐 English Translation</div><div class="translation-header-subtitle">Act 1 Scene 10 (cont.) · Page 43</div></div>
+          <button class="back-btn" onclick="hideTranslation(16)">◂ Back to Text</button>
+        </div>
+        <div class="translation-body">
+          <div class="translation-scene-title">Act 1 Scene 10 – Cassiem and Sandy</div>
+          <div class="translation-note">Cassiem and Sandy have drinks and conversation in the Jazz Club. This scene is almost entirely in English.</div>
+          <div class="trans-block"><div class="trans-speaker">Cassiem:</div><div class="trans-original">Having a drink isn't … how do you say … kosher, you know.</div><div class="trans-english">"Kosher" here means acceptable/proper under religious law (Jewish law), but Cassiem uses it loosely to mean "not the right/proper thing to do" – since he is Muslim, he shouldn't drink alcohol.</div></div>
+          <div class="trans-block"><div class="trans-speaker">Sandy:</div><div class="trans-original">Well, I suppose I'm not that halaal either.</div><div class="trans-english">"Halaal" means permissible under Islamic law. Sandy uses the term to match Cassiem's "kosher," humorously acknowledging she's not following religious rules either (by drinking and smoking).</div></div>
+          <div class="trans-block"><div class="trans-speaker">Cassiem:</div><div class="trans-original">Ag, what's there to tell?</div><div class="trans-english">Ag [a soft Afrikaans exclamation expressing mild dismissal], what is there to tell?</div></div>
+          <div class="trans-block"><div class="trans-speaker">Cassiem:</div><div class="trans-original">This. Who woulda thought I'd end up with my own recording contract, nogal.</div><div class="trans-english">This [situation]. Who would have thought I'd end up with my own recording contract, of all things! ["nogal" = of all things/actually – used for emphasis or mild surprise]</div></div>
+          <div class="trans-block"><div class="trans-speaker">Sophia:</div><div class="trans-original">And men, men and more men with big red … fezzes.</div><div class="trans-english">Sophia humorously describes the Islamic choir that Cassiem grew up in – all men, wearing the traditional red fez hats. A light, comedic interjection.</div></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ===== PAGE 17: Scene 10 end, p.44 – ACT 1 CONCLUDES ===== -->
+    <div class="book-page" id="page-17">
+      <div class="page-header">
+        <div class="page-header-left">District Six and Other Plays</div>
+        <div class="page-number-display">44</div>
+        <div class="page-header-right">District Six – the play</div>
+      </div>
+      <div class="page-body">
+        <div class="stage-direction">SANDY pours him a glass of "champagne" and gives it to him.</div>
+        <div class="dialogue-block"><div class="speaker">Sandy:</div><div class="dialogue-text">The world is full of surprises. I think this calls for a celebration, don't you? <em>(SANDY hooks her arm into his so that they have to sip intimately. Neither of them notices that MARY has entered the club.) (SANDY leans over and kisses CASSIEM.)</em> Congratulations. I'm sure you'll go far.</div></div>
+        <div class="dialogue-block"><div class="speaker">Mary:</div><div class="dialogue-text">Well, wherever you going I hope you stay there an' never come back!</div></div>
+        <div class="dialogue-block"><div class="speaker">Cassiem:</div><div class="dialogue-text">Mary! Mary, I can explain.</div></div>
+        <div class="dialogue-block"><div class="speaker">Mary:</div><div class="dialogue-text">Just leave me. Leave me alone.</div></div>
+        <div class="stage-direction">SANDY turns and rushes out.</div>
+
+        <div style="margin-top:50px; padding:28px; border:2px solid var(--gold); background:var(--parchment); text-align:center;">
+          <div style="font-family:'Montserrat',sans-serif; font-size:9px; letter-spacing:4px; text-transform:uppercase; color:var(--gold); margin-bottom:10px;">End of Act One</div>
+          <div style="font-family:'Playfair Display',serif; font-size:20px; font-weight:700; color:var(--charcoal); margin-bottom:8px;">— ✦ —</div>
+          <div style="font-family:'EB Garamond',serif; font-style:italic; font-size:15px; color:var(--mid-gray); line-height:1.6;">Act One ends with Mary discovering Cassiem and Sandy together.<br>The relationships, dreams, and community of District Six<br>are all under profound threat.</div>
+        </div>
+      </div>
+      <div class="page-footer">
+        <button class="translate-btn" onclick="showTranslation(17)"><span class="btn-icon">🌐</span> View English Translation</button>
+        <div class="page-nav">
+          <button class="nav-btn" onclick="prevPage()">← Prev</button>
+          <button class="nav-btn" disabled>Next →</button>
+        </div>
+      </div>
+      <div class="translation-overlay" id="trans-17">
+        <div class="translation-header">
+          <div><div class="translation-header-left">🌐 English Translation</div><div class="translation-header-subtitle">Act 1 Scene 10 – Final · Page 44</div></div>
+          <button class="back-btn" onclick="hideTranslation(17)">◂ Back to Text</button>
+        </div>
+        <div class="translation-body">
+          <div class="translation-scene-title">Act 1 – Final Scene: The Betrayal</div>
+          <div class="translation-note">Page 44 ends Act 1. The entire page is in English. This is the climactic moment when Mary discovers Cassiem with Sandy.</div>
+          <div class="trans-block"><div class="trans-speaker">Sandy:</div><div class="trans-english">The world is full of surprises. I think this calls for a celebration, don't you? [Sandy is celebrating Cassiem's recording contract, unaware – or perhaps uncaring – that she is crossing a line with Mary's partner]</div></div>
+          <div class="trans-stage">SANDY hooks her arm into his so that they have to sip intimately. Neither of them notices that MARY has entered the club. SANDY leans over and kisses CASSIEM.</div>
+          <div class="trans-block"><div class="trans-speaker">Mary:</div><div class="trans-english">Well, wherever you going I hope you stay there an' never come back! [Mary's pain, hurt and anger explode in this single devastating line – she witnessed the kiss and Sandy's intimate posture with Cassiem]</div></div>
+          <div class="trans-block"><div class="trans-speaker">Cassiem:</div><div class="trans-english">Mary! Mary, I can explain. [Cassiem's weak response – there is nothing to explain; Mary saw everything]</div></div>
+          <div class="trans-block"><div class="trans-speaker">Mary:</div><div class="trans-english">Just leave me. Leave me alone. [Mary shuts down – her heart is broken. Sandy rushes out in shame.]</div></div>
+          <div style="margin-top:24px; padding:18px; background:#FFF8F0; border-left:4px solid var(--gold);">
+            <div style="font-family:'Montserrat',sans-serif;font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--gold);margin-bottom:8px;">Act 1 Summary</div>
+            <div style="font-family:'EB Garamond',serif;font-size:15px;line-height:1.65;color:var(--charcoal);">Act 1 establishes the vibrant, multicultural community of District Six under apartheid threat. Henry and Hester represent the working-class heart of the community. Mary and Cassiem's musical dreams collide with Goldman's commercial interests and Sandy's presence. Damaka serves as the prophet, warning of the forced removals to come. The act closes with a personal betrayal mirroring the larger betrayal of the community itself.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div><!-- end main-content -->
+</div><!-- end book-app -->
+
+<script>
+  let currentPage = 0;
+  const totalPages = 18;
+
+  function openBook() {
+    document.getElementById('cover-page').style.display = 'none';
+    document.getElementById('book-app').style.display = 'block';
+    updateTOC();
+  }
+
+  function goToCover() {
+    document.getElementById('book-app').style.display = 'none';
+    document.getElementById('cover-page').style.display = 'flex';
+  }
+
+  function goToPage(n) {
+    document.getElementById('page-' + currentPage).classList.remove('active');
+    currentPage = n;
+    document.getElementById('page-' + currentPage).classList.add('active');
+    updateTOC();
+    updateTopbar();
+    closeSidebar();
+    window.scrollTo(0, 0);
+  }
+
+  function nextPage() {
+    if (currentPage < totalPages - 1) goToPage(currentPage + 1);
+  }
+
+  function prevPage() {
+    if (currentPage > 0) goToPage(currentPage - 1);
+  }
+
+  function showTranslation(pageIdx) {
+    document.getElementById('trans-' + pageIdx).classList.add('visible');
+  }
+
+  function hideTranslation(pageIdx) {
+    document.getElementById('trans-' + pageIdx).classList.remove('visible');
+  }
+
+  function openSidebar() {
+    document.getElementById('sidebar').classList.add('open');
+    document.getElementById('sidebar-overlay').classList.add('visible');
+  }
+
+  function closeSidebar() {
+    document.getElementById('sidebar').classList.remove('open');
+    document.getElementById('sidebar-overlay').classList.remove('visible');
+  }
+
+  function updateTOC() {
+    document.querySelectorAll('.toc-item').forEach((el, i) => {
+      el.classList.toggle('active', i === currentPage);
+    });
+  }
+
+  const sceneLabels = [
+    'Act 1 · Scene 1','Act 1 · Scene 1','Act 1 · Scene 1',
+    'Act 1 · Scene 2','Act 1 · Scene 2',
+    'Act 1 · Scene 3','Act 1 · Scene 4','Act 1 · Scene 4',
+    'Act 1 · Scene 5','Act 1 · Scene 5','Act 1 · Scene 6',
+    'Act 1 · Scene 6 / 7','Act 1 · Scene 7','Act 1 · Scene 7 / 8',
+    'Act 1 · Scene 8','Act 1 · Scene 8 / 9',
+    'Act 1 · Scene 9','Act 1 · Scene 9','Act 1 · Scene 10',
+    'Act 1 · Scene 10 (End)'
+  ];
+
+  function updateTopbar() {
+    const label = sceneLabels[currentPage] || '';
+    document.getElementById('topbar-scene').textContent = label;
+  }
+
+  updateTopbar();
+</script>
 </body>
 </html>
